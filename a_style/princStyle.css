@@ -1,0 +1,410 @@
+    /* ======================================================================================================================================== */
+    /*BODY E COISAS IMPORTANTE DA PAGINA*/
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('/IMG/wallapeper.jpg');
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    .page {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    /* ======================================================================================================================================== */
+    /*INFORMAÇÕES DO USUARIO, FOTO , REDES E ETC*/
+    
+    .txtWhite {
+        color: aliceblue;
+        font-size: 20px;
+        width: 100%;
+        padding-left: 10px;
+    }
+    
+    .userInform {
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        width: 99%;
+        height: 100%;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+        transition: all .3s ease-in;
+    }
+    
+    .leftUSER {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .centerUSER {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding-left: 20px;
+    }
+    
+    .rightUser {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        width: 90%;
+    }
+    
+    .bt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 29px;
+        height: 30px;
+        border-radius: 100%;
+        margin-right: 20px;
+        border: none;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0);
+    }
+    
+    .bt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 29px;
+        height: 30px;
+        border-radius: 100%;
+        margin-right: 20px;
+        border: none;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0);
+    }
+    
+    .bt_ {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        margin-right: 20px;
+        border: none;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0);
+    }
+    
+    .bt_ img {
+        height: 25px;
+        width: 25px;
+        margin-left: 200%;
+    }
+    
+    .bt:hover {
+        .img_icon {
+            animation: userIMG 0.5s;
+        }
+    }
+    
+    .bt_:hover {
+        .img_icon {
+            animation: userIMG 0.5s;
+        }
+    }
+    /* ======================================================================================================================================== */
+    /* ABA DE CRIAR NOVOS POSTS*/
+    
+    .newPosts {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 9px;
+        justify-content: center;
+        border-radius: 19px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+        transition: all .3s ease-in;
+    }
+    
+    .pageAreaPostAndGet {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 170px;
+    }
+    
+    .crudADDnewpost {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    
+    .userIcon {
+        border-radius: 100%;
+        animation: UserIcon 10s linear infinite;
+    }
+    
+    .img_icon {
+        width: 30px;
+    }
+    
+    .img_friends {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .userIcon:hover {
+        animation: userIMG 1s linear infinite;
+    }
+    
+    .formAddNewPost {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 25px;
+    }
+    
+    .inside_new_post {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .conteiner {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 3px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    @keyframes userIMG {
+        from {
+            transform: scale(1) box-shadow(10);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+    /* ======================================================================================================================================== */
+    /* ABA DE AMIGOS NO CANTO DIREITO*/
+    
+    .friend {
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        width: 20%;
+        height: 100%;
+        align-items: center;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+        transition: all .3s ease-in;
+    }
+    
+    .friend_div {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .h2 {
+        color: aliceblue;
+    }
+    
+    .TitleFrined {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .inp1 {
+        border-radius: 7px;
+        width: 90%;
+        outline: none;
+        border-color: rgba(240, 248, 255, 0);
+        text-align: center;
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    }
+    
+    .left_title {
+        display: flex;
+        text-align: center;
+        width: 20%;
+        justify-content: center;
+        margin-left: 5%;
+    }
+    
+    .right_title {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .inp2 {
+        border-color: rgba(240, 248, 255, 0);
+        border-radius: 15px;
+        width: 95%;
+        height: 80px;
+        outline: none;
+        text-indent: 10px;
+        box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.26);
+    }
+    
+    .crudADDnewpost button {
+        display: flex;
+        width: 72px;
+        height: 20px;
+        margin-top: 9px;
+        border-radius: 50px;
+        border-bottom: 1px;
+        outline: none;
+        border-color: rgba(0, 0, 0, 0);
+        margin-bottom: 10px;
+    }
+    
+    .piblicationBT {
+        background: rgba(255, 255, 255, 0.233);
+    }
+    
+    .friendsBT {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+        background: rgba(255, 255, 255, 0.233);
+        margin-left: 5px;
+    }
+    
+    .imgFrinds {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border: none;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0);
+    }
+    
+    .imgFrinds:hover {
+        transform: scale(1.5);
+    }
+    /* ======================================================================================================================================== */
+    /* OPÇÕES DE POSTS JA PUBLICADOS */
+    
+    .posts {
+        margin-top: 30px;
+        width: 90%;
+        height: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .readyPost {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 19px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+        background: rgba(255, 255, 255, 0);
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+    
+    .userInfoPost {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        ;
+    }
+    
+    .userInfoPost img {
+        margin-right: 5px;
+        left: 3px;
+    }
+    
+    .bt_react {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 29px;
+        height: 30px;
+        border-radius: 100%;
+        border: none;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0);
+        margin-right: 5px;
+    }
+    
+    .bt_react:hover {
+        .img_icon {
+            animation: userIMG 0.5s;
+        }
+    }
+    
+    .h3_post {
+        justify-content: center;
+        background: aliceblue;
+        border-radius: 5px;
+        width: 90%;
+        height: 100%;
+        color: rgb(92, 92, 92);
+        text-indent: 20px;
+        height: 18px;
+    }
+    
+    .Ppost {
+        height: 100%;
+        background: aliceblue;
+        border-radius: 8px;
+        text-indent: 16px;
+        text-align: center;
+        color: rgb(92, 92, 92);
+        padding: 15px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    
+    .ReactPost {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        margin-right: 20px;
+        justify-content: end;
+    }
+    
+    .iconPost {
+        display: flex;
+        width: 90%;
+        height: 100%;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }

@@ -1,0 +1,20 @@
+[{
+        "shizu": { "senha": "777", "email": "p@gmail.com", "id": "0001" },
+        "Haruke": { "senha": "999", "email": "h@gmail.com", "id": "0002" },
+        "Helen": { "senha": "222", "email": "h@gmail.com", "id": "0003" }
+    },
+    {
+        "0001": {
+            "name": "Shizu777",
+
+            "PUBLICATIONS": {
+                "tituloDATAid": {
+                    "titulo": "testeTitulo",
+                    "text": "Texto de exemplo muito extenso para testar algo que requer um texto longo, pois, caso contrário, eu não fico sabendo de nada.",
+                    "like": 0,
+                    "deslike": 0
+                }
+            }
+        }
+    }
+]

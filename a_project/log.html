@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../a_style/logStyle.css">
+
+
+</head>
+
+<body>
+
+    <h1 style="text-align: center; margin-top: 40px;">丂卄丨乙ㄩ 丂乇ᐯ乇爪 </h1>
+
+    <div class="base1" id="login">
+        <H1 style="padding-top: 20px;">login</H1>
+
+        <form type="submit" id="formLogin">
+
+            <div class="bars">
+                <label for="user">User</label>
+                <input type="text" class="inpt" autocomplete="username" name="user" required>
+            </div>
+
+            <div class="bars">
+                <label for="email">Email</label>
+                <input type="email" class="inpt" autocomplete="email" name="email" required>
+            </div>
+
+            <div class="bars">
+                <label for="senha">Senha</label>
+                <input type="password" class="inpt" autocomplete="current-password" name="senha" required>
+            </div>
+
+        </form>
+
+        <button class="bt" onclick="GETdata()">Enviar</button>
+
+    </div>
+
+    <div class="base2" id="register">
+        <H1>Register</H1>
+
+        <form type="submit" id="formRegis">
+
+            <div class="bars">
+                <label for="user">User</label>
+                <input type="text" class="inpt" autocomplete="username" name="user" required>
+            </div>
+
+            <div class="bars">
+                <label for="email">Email</label>
+                <input type="email" class="inpt" autocomplete="email" name="email" required>
+            </div>
+
+            <div class="bars">
+                <label for="senha">Senha</label>
+                <input type="password" class="inpt" autocomplete="current-password" name="senha" required>
+            </div>
+
+        </form>
+
+        <button class="bt" onclick="POSTdata()">Enviar</button>
+
+    </div>
+
+    <div class="btPage ">
+        <button class="bt_" onclick="loginToRegs() " id="page">Register</button>
+    </div>
+
+
+
+    <script src="../a_scripts/loginPage.js "></script>
+    <script src="/a_scripts/BD.js "></script>
+
+</body>
+
+
+</html>

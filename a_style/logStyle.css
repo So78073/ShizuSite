@@ -1,0 +1,107 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: rgb(221, 221, 221);
+    color: aliceblue;
+    background-image: url(/IMG/wallapeper.jpg);
+}
+
+.base1 {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    transition: all .3s ease-in;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 270px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 7px 20px 1px rgba(0, 0, 0, 0.5);
+    margin-top: 25px;
+}
+
+.base2 {
+    background: rgb(220, 221, 221);
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 270px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 7px 20px 1px rgba(0, 0, 0, 0.5);
+    margin-top: 25px;
+}
+
+.daddy {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    text-align: center;
+}
+
+.bars {
+    display: grid;
+    padding: 5px;
+}
+
+.sx_info {
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sx {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.inpt {
+    width: 275px;
+    height: 20px;
+    margin-left: 9%;
+    border-radius: 5px;
+    border-color: aliceblue;
+    outline: none;
+    border: none;
+}
+
+.bt {
+    color: rgb(255, 255, 255);
+    width: 75px;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 7px 20px 1px rgba(88, 88, 88, 0.5);
+    outline: none;
+    margin-top: 5px;
+    border: none;
+    background: rgb(0, 119, 255);
+    margin-top: 10px;
+}
+
+.btPage {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.bt_ {
+    color: rgb(255, 255, 255);
+    width: 350px;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 7px 20px 1px rgba(88, 88, 88, 0.5);
+    outline: none;
+    margin-top: 5px;
+    border: none;
+    background: rgb(0, 119, 255);
+    margin-top: 10px;
+}
