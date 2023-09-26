@@ -1,4 +1,4 @@
-    /* ======================================================================================================================================== */
+    /* ------------------------------------------------------------------------------------------------------------- */
     /*BODY E COISAS IMPORTANTE DA PAGINA*/
     
     body {
@@ -20,6 +20,8 @@
     
     .newPosts {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         height: 100%;
         margin: 9px;
@@ -30,7 +32,13 @@
         box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
         transition: all .3s ease-in;
     }
-    /* ======================================================================================================================================== */
+    /* ------------------------------------------------------------------------------------------------------------- */
+    /* CSSs QUE USO EM DIFERENTES PARTES DO CODIGO */
+    
+    .img_icon {
+        width: 30px;
+    }
+    /* ------------------------------------------------------------------------------------------------------------- */
     /*INFORMAÇÕES DO USUARIO, FOTO , REDES E ETC*/
     
     .txtWhite {
@@ -129,13 +137,82 @@
             animation: userIMG 0.5s;
         }
     }
-    /* ======================================================================================================================================== */
+    /* ------------------------------------------------------------------------------------------------------------- */
     /* ABA DE CRIAR NOVOS POSTS*/
-    /* ======================================================================================================================================== */
+    
+    .inside_new_post {
+        margin-top: 30px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 95%;
+        height: 100%;
+        padding: 10px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+        transition: all .3s ease-in;
+    }
+    
+    .addPostUp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .addPostUp img {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .btAddPostUp {
+        border-radius: 15px;
+        text-align: start;
+        font-size: 15px;
+        text-indent: 15px;
+        width: 100%;
+        height: 30px;
+        text-size-adjust: 20px;
+        margin-left: 10px;
+    }
+    
+    .addPostDown {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .BtAddDown {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+    }
+    
+    .BtPostDown {
+        height: 100%;
+        width: 20%;
+    }
+    
+    .addPostDown button {
+        width: 25%;
+        height: 50px;
+        margin: 5px;
+        border-radius: 20px;
+        outline: none;
+        border: rgba(255, 255, 255, 0.123);
+    }
+    /* ------------------------------------------------------------------------------------------------------------- */
     /* ABA DE AMIGOS NO CANTO DIREITO*/
     
     .friend {
-        border-radius: 15px;
+        border-radius: 25px;
         display: flex;
         flex-direction: column;
         padding: 5px;
@@ -244,12 +321,7 @@
     .imgFrinds:hover {
         transform: scale(1.5);
     }
-    /* ======================================================================================================================================== */
-    /* OPÇÕES DE POSTS JA PUBLICADOS */
-    
-    .img_icon {
-        width: 30px;
-    }
+    /* ------------------------------------------------------------------------------------------------------------- */
     
     .posts {
         margin-top: 30px;
@@ -342,4 +414,40 @@
         height: 100%;
         margin-left: 20px;
         margin-bottom: 10px;
+    }
+    /* ------------------------------------------------------------------------------------------------------------- */
+    /* popup */
+    
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Estilo para o conteúdo do pop-up */
+    
+    .popup-content {
+        position: relative;
+        bottom: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 0px black;
+        text-align: center;
+        height: 100%;
+    }
+    /* Estilo para o botão de fechar o pop-up */
+    
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
     }

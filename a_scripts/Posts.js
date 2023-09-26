@@ -10,6 +10,10 @@ var post = {
     }]
 }
 
-function publicar() {
-    console.log('1fsjdhfkjs')
+function openPOPup() {
+    document.getElementById("popupContainer").style.display = "block";
+}
+
+function closePOPup() {
+    document.getElementById("popupContainer").style.display = "none";
 }
