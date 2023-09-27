@@ -1,4 +1,5 @@
 var post = {
+    nome: '',
     titulo: '',
     mensag: '',
     like: '',
@@ -9,11 +10,21 @@ var post = {
         comentario: ''
     }]
 }
+var popupOnOff = 0;
 
 function openPOPup() {
-    document.getElementById("popupContainer").style.display = "block";
-}
 
-function closePOPup() {
-    document.getElementById("popupContainer").style.display = "none";
+    const suaPopup = document.getElementById('popupADDpost');
+
+
+    const popup = document.getElementById('popupADDpost');
+    if (popupOnOff == 0) {
+        suaPopup.classList.add('active');
+        popup.style.display = 'flex'
+        popupOnOff = 1
+    } else {
+        popup.style.display = 'none'
+        popupOnOff = 0
+    }
+
 }
