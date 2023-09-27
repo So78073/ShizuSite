@@ -1,23 +1,24 @@
-# ShizuSevemWebSite
-WebSite
+# ShizuSevenWebsite
+Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de aprimorar minhas habilidades em JS, HTML, CSS e Node.js.
 
-Este é um projeto onde eu desenvolvo um website com o objetivo de evoluir minhas abilidades de JS, HTML , CSS e Node.js.
+## v1.0.0
+Nesta primeira versão, o foco é dar início ao projeto. Ele inclui:
 
-- v1.0.0> esta primeira verção tem o foco de apenas dar um inicio ao projeto. Nele contem um :
+- Um banco de dados criado com uma API, onde são armazenados logins e postagens de usuários, bem como outras informações. Se você quiser executar o aplicativo fora do website original, você deve executar o comando "npm run dev" no terminal, dentro da pasta raiz, para iniciar a API e realizar operações CRUD.
 
-* Banco de dados feito com API, onde ele armazena logins e posts de usuarios e também outras informs.
-( Caso vocÇe tenha interesse em executar o arquivo fora do WebSite Original [  ]. você tem que dar um
-" npm run dev " no terminal dentro do arquivo raiz, assim ele inicia a API pra você fazer C.R.U.D).
+- O site é responsivo: independentemente do tamanho da tela, sempre haverá espaço!
 
-* Site responsivo : não importa o tamanho da tela ! sempre a Espaço !
+- Feito com amor, carinho e um toque de falta de sanidade mental! Beijos do Pedrinho!
 
-* Feito com amor, carinho e um pouco de falta de sanidade mental !!! bjs do Pedrinho !!!
+## v1.0.1
 
+- Melhorias na responsividade (ainda apenas para desktop).
+- Aperfeiçoamento na função de adicionar uma nova postagem.
+- Melhor design para a área de novas postagens.
+- Polimento de CSS e outras pequenas melhorias.
 
-- v1.0.1 
+## v1.0.2
 
-* melhor responsividade (ainda apenas pra descktop)
-* polimento na função de adicionar um novo post
-* melhor design para a area de novos posts
-* polimento de CSS e outras coisas pequenas 
-
+- Melhorias no CSS.
+- Melhorias na sintaxe HTML e CSS.
+- Implementação de suporte para a futura função de postagem.
