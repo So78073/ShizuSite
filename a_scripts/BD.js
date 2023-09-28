@@ -67,7 +67,7 @@ function POSTdata() {
         user: elem('user', 'post'),
         senha: elem('senha', 'post'),
         email: elem('email', 'post'),
-        id: 0
+        nome: elem('nome', 'post'),
     }
 
     fetch('http://localhost:3000/', {
@@ -75,11 +75,13 @@ function POSTdata() {
             headers: {
                 'Content-Type': 'application/json'
             },
+
             body: JSON.stringify(user)
+
         })
         .then(response => response.json())
         .then(data => {
-            dados[user['user']]['id'] = Object.keys(data[0]).length
+            console.log('');
         })
         .catch(error => {
             console.error('Erro:', error);

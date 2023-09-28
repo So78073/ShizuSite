@@ -1,6 +1,5 @@
 const apiUrl = 'http://localhost:3000/';
 var currentUser = sessionStorage.getItem('user');
-currentUser = '0001';
 
 
 
@@ -31,7 +30,8 @@ function userReady(inf) {
     (async() => {
         const userData = await fetchUserData();
         const name_ = document.getElementById('nameUser');
-        name_.textContent = userData[1][currentUser]['name']
+        name_.textContent = userData[1][currentUser]['nome']
+        console.log('script rodou');
     })();
 }
 

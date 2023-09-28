@@ -28,6 +28,8 @@ const readFile = () => {
     return JSON.parse(json_);
 }
 
+/* login route */
+
 router.get('/', (req, res) => {
     const content = readFile();
     res.send(content);
@@ -35,17 +37,31 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const currentContent = readFile();
-    const { user, senha, email } = req.body;
+    const { user, senha, email, nome } = req.body;
+    let idUser = '0' + String(Object.keys(currentContent[0]).length);
+
 
     if (user in currentContent[0]) {
         res.send("USUARIO EXISTENTE");
     } else {
-        currentContent[0][user] = { senha: senha, email: email, id: Object.keys(currentContent).length };
+        currentContent[0][user] = { senha: senha, email: email, id: idUser };
+        currentContent[1][idUser] = { "nome": String(nome), "publications": {} }
 
         fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
         res.send(currentContent[0]);
     }
 });
+
+/* publications route*/
+router.post('/newpublicationsAPI', (req, res) => {
+    const currentContent = readFile();
+    const { txtid, userid, txt } = req.body;
+    currentContent[1][userid][txtid] = { txtid: txtid, txt: txt }
+    fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8')
+
+    res.send('enviado com sucesso')
+});
+
 
 server.use(router);
 
