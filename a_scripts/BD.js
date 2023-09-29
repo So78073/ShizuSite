@@ -36,7 +36,14 @@ function GETdata() {
     }
 
 
-    fetch(apiUrl, optionsGET)
+    fetch('http://localhost:3000/', {
+            mothod: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+
+        })
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`Erro de rede! Status: ${response.status}`);
@@ -70,15 +77,7 @@ function POSTdata() {
         nome: elem('nome', 'post'),
     }
 
-    fetch('http://localhost:3000/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-
-            body: JSON.stringify(user)
-
-        })
+    fetch(apiUrl, optionPOST)
         .then(response => response.json())
         .then(data => {
             console.log('');

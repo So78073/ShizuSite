@@ -3,17 +3,10 @@ var currentUser = sessionStorage.getItem('user');
 
 
 
-const optionsGET = {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-};
-
 // Função assíncrona que busca os dados do usuário
 async function fetchUserData() {
     try {
-        const response = await fetch(apiUrl, optionsGET);
+        const response = await fetch(apiUrl, optionsGET); // Utilize optionsGET daqui, sem redeclaração
         if (!response.ok) {
             throw new Error(`Erro de rede! Status: ${response.status}`);
         }
