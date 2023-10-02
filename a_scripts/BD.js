@@ -12,21 +12,6 @@ function elem(elem, metodo) {
     }
 }
 
-const optionsGET = {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-
-    },
-};
-
-const optionPOST = {
-    mothod: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}
-
 
 function GETdata() {
     let user = {
@@ -37,12 +22,10 @@ function GETdata() {
 
 
     fetch('http://localhost:3000/', {
-            mothod: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-
+            }
         })
         .then((response) => {
             if (!response.ok) {
@@ -77,10 +60,16 @@ function POSTdata() {
         nome: elem('nome', 'post'),
     }
 
-    fetch(apiUrl, optionPOST)
+    fetch(apiUrl, {
+            method: 'POST', // Corrigido para 'method' aqui
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
         .then(response => response.json())
         .then(data => {
-            console.log('');
+            // Manipular dados de resposta, se necessário
         })
         .catch(error => {
             console.error('Erro:', error);

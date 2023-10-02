@@ -56,6 +56,7 @@ router.post('/', (req, res) => {
 router.post('/newpublicationsAPI', (req, res) => {
     const currentContent = readFile();
     const { txtid, userid, txt } = req.body;
+
     currentContent[1][userid][txtid] = { txtid: txtid, txt: txt }
     fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8')
 

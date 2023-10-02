@@ -42,3 +42,11 @@ usuario deseja que apareça para os outros usuarios !!
 - preparatorio para a função de post tanto do lado do servidor 
 quanto do lado do cliente 
 -melhoria de estrutura do .json (data temporaria ate eu usar um BD)
+
+
+## v1.0.4.1 29/09/2023
+
+- correções de bug de js
+- melhoria na estrutura da api 
+- polimentos (29/09/2023)
+( quando chegar em casa eu termino kkk)
