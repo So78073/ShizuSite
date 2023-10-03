@@ -1,7 +1,33 @@
 var currentUser = sessionStorage.getItem('user');
-console.log(currentUser);
 
 
+function test(texto) {
+    const newPosts = document.getElementById('newPosts');
+
+    const htmlString = `
+        <div class="posts">
+            <div class="readyPost">
+                <div class="userInfoPost">
+                    <img src="/IMG/USER_DEFAUT.png">
+                    <h2 class="h2">NOME DO USUARIO</h2>
+                </div>
+                <p class="Ppost">${texto}</p>
+                <div class="ReactPost">
+                    <div class="iconPost">
+                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                    </div>
+                    <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                    <button class="bt_react"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
+                    <button class="bt_react"><img src="/IMG/reacts/compartilhar.png" class="img_icon"></button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    newPosts.insertAdjacentHTML('beforeend', htmlString);
+}
 
 var popupOnOff = 0;
 
@@ -33,8 +59,8 @@ async function fetchUserData() {
 
 /* APLICAÇÃO EM SI (ADICIONAR NOVO POST AO PERFIL) */
 function newPostInPerfil() {
-    const apiUrlpost = 'http://localhost:3000/newpublicationsAPI'
-    const user = {}
+    const apiUrlpost = 'http://localhost:3000/newpublicationsAPI';
+    const text = document.getElementById('textpost');
 
     const dataAtual = new Date();
     const ano = dataAtual.getFullYear();
@@ -43,17 +69,21 @@ function newPostInPerfil() {
     const minuto = dataAtual.getMinutes();
 
     // Crie a string única combinando os valores
-    const idpost = `${currentUser}.${ano}.${mes}.${hora}.${minuto}`;
-    console.log(idpost);
 
 
+
+    const struc = {
+        idpost: `${currentUser}.${ano}.${mes}.${hora}.${minuto}`
+    }
+
+    console.log(struc['idpost']);
     // Função assíncrona que busca os dados do usuário
     fetch(apiUrlpost, {
             mothod: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify()
 
         })
         .then(response => response.json())

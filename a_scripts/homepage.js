@@ -24,7 +24,7 @@ function userReady(inf) {
         const userData = await fetchUserData();
         const name_ = document.getElementById('nameUser');
         name_.textContent = userData[1][currentUser]['nome']
-        console.log('script rodou');
+
     })();
 }
 

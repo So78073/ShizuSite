@@ -398,9 +398,9 @@
     
     .Ppost {
         height: 100%;
+        width: 90%;
         background: aliceblue;
         border-radius: 8px;
-        text-indent: 16px;
         text-align: center;
         color: rgb(92, 92, 92);
         padding: 15px;
