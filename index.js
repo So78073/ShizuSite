@@ -53,14 +53,15 @@ router.post('/', (req, res) => {
 });
 
 /* publications route*/
-router.post('/newpublicationsAPI', (req, res) => {
+router.post('/publiAPI', (req, res) => {
+
     const currentContent = readFile();
-    const { txtid, userid, txt } = req.body;
+    const { userid, txtid, text, likes, delikes, compartilhamentos } = req.body;
 
-    currentContent[1][userid][txtid] = { txtid: txtid, txt: txt }
-    fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8')
+    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: likes, delikes: delikes, compartilhamentos: compartilhamentos }
+    fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8') / 8
 
-    res.send('enviado com sucesso')
+    res.send(currentContent)
 });
 
 

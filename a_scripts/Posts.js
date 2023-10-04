@@ -5,25 +5,34 @@ function test(texto) {
     const newPosts = document.getElementById('newPosts');
 
     const htmlString = `
-        <div class="posts">
-            <div class="readyPost">
-                <div class="userInfoPost">
-                    <img src="/IMG/USER_DEFAUT.png">
-                    <h2 class="h2">NOME DO USUARIO</h2>
-                </div>
-                <p class="Ppost">${texto}</p>
-                <div class="ReactPost">
-                    <div class="iconPost">
-                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                    </div>
-                    <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                    <button class="bt_react"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
-                    <button class="bt_react"><img src="/IMG/reacts/compartilhar.png" class="img_icon"></button>
-                </div>
+    <div class="posts">
+    <div class="readyPost">
+        <div class="userInfoPost">
+            <img src="/IMG/USER_DEFAUT.png">
+            <h2 class="h2">NOME DO USUARIO</h2>
+        </div>
+        <p class="Ppost">${texto}</p>
+        <div class="ReactPost">
+            <div class="iconPost">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+            </div>
+            <div class="reactions">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label for="">0</label>
+            </div>
+            <div class="reactions">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label for="">0</label>
+            </div>
+            <div class="reactions">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label for="">0</label>
             </div>
         </div>
+    </div>
+</div>
     `;
 
     newPosts.insertAdjacentHTML('beforeend', htmlString);
@@ -59,7 +68,6 @@ async function fetchUserData() {
 
 /* APLICAÇÃO EM SI (ADICIONAR NOVO POST AO PERFIL) */
 function newPostInPerfil() {
-    const apiUrlpost = 'http://localhost:3000/newpublicationsAPI';
     const text = document.getElementById('textpost');
 
     const dataAtual = new Date();
@@ -70,21 +78,23 @@ function newPostInPerfil() {
 
     // Crie a string única combinando os valores
 
-
-
     const struc = {
-        idpost: `${currentUser}.${ano}.${mes}.${hora}.${minuto}`
+        userid: currentUser,
+        idpost: `${currentUser}.${ano}.${mes}.${hora}.${minuto}`,
+        text: text.value,
+        like: 0,
+        deslike: 0,
+        compartilhamentos: 0
     }
 
-    console.log(struc['idpost']);
-    // Função assíncrona que busca os dados do usuário
-    fetch(apiUrlpost, {
-            mothod: 'POST',
+    console.log(struc['idpost'], struc['text']);
+
+    fetch('http://localhost:3000/publiAPI', {
+            method: 'POST', // Correção: method em vez de mothod
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify()
-
+            body: JSON.stringify(struc)
         })
         .then(response => response.json())
         .then(data => {
@@ -93,9 +103,11 @@ function newPostInPerfil() {
         .catch(error => {
             console.error('Erro:', error);
         });
-
+    // Função assíncrona que busca os dados do usuário
 }
 
 
 
 // Função assíncrona que busca os dados do usuário
+
+/*   */
