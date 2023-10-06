@@ -11,15 +11,15 @@
         "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
     },
     {
-        "1": { "nome": "shizu", "publications": {}, "amigos": {} },
-        "2": { "nome": "Helen Soares", "publications": {}, "amigos": {} },
-        "3": { "nome": "Tilda Soares De Assis", "publications": {}, "amigos": {} },
-        "4": { "nome": "jefersson", "publications": {}, "amigos": {} },
-        "5": { "nome": "Gustav", "publications": {}, "amigos": {} },
-        "6": { "nome": "Danado do Kauã", "publications": {}, "amigos": {} },
-        "7": { "nome": "Doido", "publications": {} },
-        "8": { "nome": "Alfredo Chupingoli", "publications": {}, "amigos": {} },
-        "9": { "nome": "Pedro Soares", "publications": {}, "amigos": {} }
+        "1": { "nome": "shizu", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "2": { "nome": "Helen Soares", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "3": { "nome": "Tilda Soares De Assis", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "4": { "nome": "jefersson", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "5": { "nome": "Gustav", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "6": { "nome": "Danado do Kauã", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "7": { "nome": "Doido", "publications": {}, "seguidores": {} },
+        "8": { "nome": "Alfredo Chupingoli", "publications": {}, "seguindo": {}, "seguidores": {} },
+        "9": { "nome": "Pedro Soares", "publications": {}, "seguindo": {}, "seguidores": {} }
     },
     {
         "shizu": "1",
