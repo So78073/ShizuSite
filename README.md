@@ -66,3 +66,8 @@ quanto do lado do cliente
 - Correção de pequenos bugs.
 - Preparação da função de adição de amigos.
 - Melhoria na preparação da função de postagem direta.
+
+## v1.0.6.1 - 06/10/2023
+- melhorias em alguns scripts (como de costume)
+- agora quando você pesquisa por uma pessoa, não fica acumulando pessoas nos achados (correção de bug)
+- incrementando o sistema de crud de amigos
