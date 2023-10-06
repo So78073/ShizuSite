@@ -11,16 +11,15 @@
         "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
     },
     {
-        "9": { "nome": "Macaco da helen", "publications": {} },
-        "01": { "nome": "shizu", "publications": {} },
-        "02": { "nome": "Helen Soares", "publications": {} },
-        "03": { "nome": "Tilda Soares De Assis", "publications": {} },
-        "04": { "nome": "jefersson", "publications": {} },
-        "05": { "nome": "Gustav", "publications": {} },
-        "06": { "nome": "Danado do Kauã", "publications": {} },
-        "07": { "nome": "Doido", "publications": {} },
-        "08": { "nome": "Alfredo Chupingoli", "publications": {} },
-        "09": { "nome": "Pedro Soares", "publications": {} }
+        "1": { "nome": "shizu", "publications": {} },
+        "2": { "nome": "Helen Soares", "publications": {} },
+        "3": { "nome": "Tilda Soares De Assis", "publications": {} },
+        "4": { "nome": "jefersson", "publications": {} },
+        "5": { "nome": "Gustav", "publications": {} },
+        "6": { "nome": "Danado do Kauã", "publications": {} },
+        "7": { "nome": "Doido", "publications": {} },
+        "8": { "nome": "Alfredo Chupingoli", "publications": {} },
+        "9": { "nome": "Pedro Soares", "publications": {} }
     },
     {
         "shizu": "1",

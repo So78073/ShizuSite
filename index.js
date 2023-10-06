@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const currentContent = readFile();
     const { user, senha, email, nome } = req.body;
-    let idUser = String(Object.keys(currentContent[0]).length);
+    let idUser = String(Object.keys(currentContent[0]).length + 1);
 
 
     if (user in currentContent[0]) {

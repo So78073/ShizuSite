@@ -1,31 +1,29 @@
-const apiUrl = 'http://localhost:3000/';
 var currentUser = sessionStorage.getItem('user');
 
+console.log(currentUser);
 
+function readyPage() {
+    const username = document.getElementById('nameUser');
 
-// Função assíncrona que busca os dados do usuário
-async function fetchUserData() {
-    try {
-        const response = await fetch(apiUrl, optionsGET); // Utilize optionsGET daqui, sem redeclaração
-        if (!response.ok) {
-            throw new Error(`Erro de rede! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
+    fetch('http://localhost:3000/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`Erro de rede! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            username.textContent = data[1][currentUser]['nome'];
+        })
+        .catch((error) => {
+            // Trata erros de rede ou de outra natureza
+            console.error('Ocorreu um erro:', error);
+        });
 }
 
-// Chama a função assíncrona e aguarda a conclusão
-function userReady(inf) {
-    (async() => {
-        const userData = await fetchUserData();
-        const name_ = document.getElementById('nameUser');
-        name_.textContent = userData[1][currentUser]['nome']
-
-    })();
-}
-
-userReady();
+readyPage();
