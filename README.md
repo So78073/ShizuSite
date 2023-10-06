@@ -1,7 +1,7 @@
 # ShizuSevenWebsite
 Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de aprimorar minhas habilidades em JS, HTML, CSS e Node.js.
 
-## (caso clone o repositorio não se esqueça de iniciar a api usando powershell !! - npm run dev)
+## (caso clone o repositorio, não se esqueça de iniciar a api usando powershell !! - npm run dev)
 
 ## coisas que aprendo fazendo esse projeto:
 - melhoria extrema em HTML/CSS
