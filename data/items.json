@@ -7,10 +7,11 @@
         "Danado!": { "senha": "111", "email": "d@gmail.com", "id": "6" },
         "Gabriel": { "senha": "333", "email": "g@gmail.com", "id": "7" },
         "Alfredo": { "senha": "444", "email": "a@gmail.com", "id": "8" },
-        "Pedro": { "senha": "777", "email": "p@gmail.com", "id": "9" }
+        "Pedro": { "senha": "777", "email": "p@gmail.com", "id": "9" },
+        "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
     },
-
     {
+        "9": { "nome": "Macaco da helen", "publications": {} },
         "01": { "nome": "shizu", "publications": {} },
         "02": { "nome": "Helen Soares", "publications": {} },
         "03": { "nome": "Tilda Soares De Assis", "publications": {} },
@@ -21,7 +22,6 @@
         "08": { "nome": "Alfredo Chupingoli", "publications": {} },
         "09": { "nome": "Pedro Soares", "publications": {} }
     },
-
     {
         "shizu": "1",
         "Helen Soares": "2",
