@@ -1,7 +1,7 @@
 # ShizuSevenWebsite
 Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de aprimorar minhas habilidades em JS, HTML, CSS e Node.js.
 
-## (caso clone o repositorio não se esquesa de iniciar a api usando powershell !! - npm run dev)
+## (caso clone o repositorio não se esqueça de iniciar a api usando powershell !! - npm run dev)
 
 ## coisas que aprendo fazendo esse projeto:
 - melhoria extrema em HTML/CSS
@@ -59,3 +59,10 @@ quanto do lado do cliente
 - configurações do back end com suporte aos novos post
 - preparativos para sistema de criptografia de ponta (com python seria mais facil 😅)
 - correções de bugs 
+
+## v1.0.6 - 06/10/2023
+- Novo: Sistema de pesquisa de amigos.
+- Melhoria na infraestrutura de código em geral.
+- Correção de pequenos bugs.
+- Preparação da função de adição de amigos.
+- Melhoria na preparação da função de postagem direta.
