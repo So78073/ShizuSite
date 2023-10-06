@@ -1,35 +1,32 @@
 [{
-        "Shizu": { "senha": "777", "email": "p@gmail.com", "id": "1" },
-        "Helen": { "senha": "222", "email": "h@gmail.com", "id": "2" },
-        "Tilda": { "senha": "666", "email": "t@gmail,com", "id": "3" },
-        "Jefferson": { "senha": "333", "email": "j@gmail.com", "id": "4" },
-        "Mariana": { "senha": "666", "email": "m@gmail.com", "id": "5" },
-        "Danado!": { "senha": "111", "email": "d@gmail.com", "id": "6" },
-        "Gabriel": { "senha": "333", "email": "g@gmail.com", "id": "7" },
-        "Alfredo": { "senha": "444", "email": "a@gmail.com", "id": "8" },
-        "Pedro": { "senha": "777", "email": "p@gmail.com", "id": "9" },
-        "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
-    },
-    {
-        "1": { "nome": "shizu", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "2": { "nome": "Helen Soares", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "3": { "nome": "Tilda Soares De Assis", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "4": { "nome": "jefersson", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "5": { "nome": "Gustav", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "6": { "nome": "Danado do Kauã", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "7": { "nome": "Doido", "publications": {}, "seguidores": {} },
-        "8": { "nome": "Alfredo Chupingoli", "publications": {}, "seguindo": {}, "seguidores": {} },
-        "9": { "nome": "Pedro Soares", "publications": {}, "seguindo": {}, "seguidores": {} }
-    },
-    {
-        "shizu": "1",
-        "Helen Soares": "2",
-        "Tilda Soares De Assis": "3",
-        "jefersson": "4",
-        "Gustav": "5",
-        "Danado do Kauã": "6",
-        "Doido": "7",
-        "Alfredo Chupingoli": "8",
-        "Pedro Soares": "9"
-    }
-]
+    "Shizu": { "senha": "777", "email": "p@gmail.com", "id": "1" },
+    "Helen": { "senha": "222", "email": "h@gmail.com", "id": "2" },
+    "Tilda": { "senha": "666", "email": "t@gmail,com", "id": "3" },
+    "Jefferson": { "senha": "333", "email": "j@gmail.com", "id": "4" },
+    "Mariana": { "senha": "666", "email": "m@gmail.com", "id": "5" },
+    "Danado!": { "senha": "111", "email": "d@gmail.com", "id": "6" },
+    "Gabriel": { "senha": "333", "email": "g@gmail.com", "id": "7" },
+    "Alfredo": { "senha": "444", "email": "a@gmail.com", "id": "8" },
+    "Pedro": { "senha": "777", "email": "p@gmail.com", "id": "9" },
+    "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
+}, {
+    "1": { "nome": "shizu", "publications": {}, "seguindo": ["9"], "seguidores": [], "biografia": " " },
+    "2": { "nome": "Helen Soares", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "3": { "nome": "Tilda Soares De Assis", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "4": { "nome": "jefersson", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "5": { "nome": "Gustav", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "6": { "nome": "Danado do Kauã", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "7": { "nome": "Doido", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "8": { "nome": "Alfredo Chupingoli", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "9": { "nome": "Pedro Soares", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " }
+}, {
+    "shizu": "1",
+    "Helen Soares": "2",
+    "Tilda Soares De Assis": "3",
+    "jefersson": "4",
+    "Gustav": "5",
+    "Danado do Kauã": "6",
+    "Doido": "7",
+    "Alfredo Chupingoli": "8",
+    "Pedro Soares": "9"
+}]

@@ -1,6 +1,15 @@
 var currentUser = sessionStorage.getItem('user');
 
-console.log(currentUser);
+
+
+
+for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i); // Obtém a chave (nome) do item
+    const value = sessionStorage.getItem(key); // Obtém o valor do item
+    console.log(`Chave: ${key}, Valor: ${value}`);
+}
+
+
 
 function readyPage() {
     const username = document.getElementById('nameUser');

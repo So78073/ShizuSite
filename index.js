@@ -31,6 +31,7 @@ const readFile = () => {
 /* login route */
 
 router.get('/', (req, res) => {
+
     const content = readFile();
     res.send(content);
 });
@@ -61,7 +62,7 @@ router.post('/publiAPI', (req, res) => {
     const { userid, txtid, text, likes, delikes, compartilhamentos } = req.body;
 
     currentContent[1][userid]['publications'][txtid] = { txt: text, likes: likes, delikes: delikes, compartilhamentos: compartilhamentos }
-    fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8') / 8
+    fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
 
 });
 
@@ -78,6 +79,14 @@ router.get('/friends', (req, res) => {
     res.send(achados);
 });
 
+router.post('/follow', (req, res) => {
+    const content = readFile();
+    const { currentUser, friendID } = req.body;
+
+    content[1][currentUser]['seguindo'].push(friendID);
+
+    fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
+});
 server.use(router);
 
 const port = 3000;

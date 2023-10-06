@@ -17,8 +17,7 @@ function BrownserFR() {
         .then(response => response.json())
         .then(data => {
             for (let p in data) {
-                console.log(data);
-                RenderFrindesBrowser(p, data[p]);
+                RenderFrindesBrowser(p, data[p])
             }
         })
         .catch(error => {
@@ -42,7 +41,7 @@ function RenderFrindesBrowser(nome, id) {
     encontrados.insertAdjacentHTML('beforeend', htmlString);
 }
 
-function ClickFriend() {
+function ClickFriend(id) {
     sessionStorage.setItem("friendClick", id);
     window.location.href = "../a_project/userPerfilarea.html";
 }
