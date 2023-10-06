@@ -1,0 +1,81 @@
+body {
+    background-image: url('/IMG/wallapeper.jpg');
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 0, 0.226);
+    border-radius: 19px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    transition: all .3s ease-in;
+}
+
+.userInfo label {
+    color: aliceblue;
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+
+/* UP SIDE INFORM */
+
+.up {
+    display: flex;
+    align-items: center;
+}
+
+.info {
+    min-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.opt {
+    display: flex;
+    justify-content: center;
+    margin-right: 25px;
+}
+
+.opt button {
+    color: aliceblue;
+    justify-content: center;
+    margin: 5px;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 1px rgb(0, 102, 255);
+    border: none;
+    background: rgb(0, 102, 255);
+}
+
+
+/* DOWN SIDE INFORM */
+
+.mid {
+    display: flex;
+}
+
+.mid p {
+    color: aliceblue;
+    white-space: pre-wrap;
+    padding: 10px;
+}
+
+.emblemas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+    border-radius: 19px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    transition: all .3s ease-in;
+}

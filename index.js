@@ -45,7 +45,9 @@ router.post('/', (req, res) => {
         res.send("USUARIO EXISTENTE");
     } else {
         currentContent[0][user] = { senha: senha, email: email, id: idUser };
-        currentContent[1][idUser] = { "nome": String(nome), "publications": {} }
+        currentContent[1][idUser] = { "nome": String(nome), "publications": {}, "amigos": {} };
+        currentContent[2][nome] = idUser;
+
 
         fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
         res.send(currentContent[0]);
