@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const currentContent = readFile();
     const { user, senha, email, nome } = req.body;
-    let idUser = '0' + String(Object.keys(currentContent[0]).length);
+    let idUser = String(Object.keys(currentContent[0]).length);
 
 
     if (user in currentContent[0]) {
@@ -61,9 +61,20 @@ router.post('/publiAPI', (req, res) => {
     currentContent[1][userid]['publications'][txtid] = { txt: text, likes: likes, delikes: delikes, compartilhamentos: compartilhamentos }
     fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8') / 8
 
-    res.send(currentContent)
 });
 
+router.get('/friends', (req, res) => {
+    const content = readFile();
+    const { nome } = req.query;
+    achados = {};
+
+    for (let p in content[2]) {
+        if (p.includes(nome)) {
+            achados[p] = content[2][p];
+        }
+    }
+    res.send(achados);
+});
 
 server.use(router);
 

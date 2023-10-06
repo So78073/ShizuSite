@@ -1,6 +1,8 @@
 # ShizuSevenWebsite
 Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de aprimorar minhas habilidades em JS, HTML, CSS e Node.js.
 
+## (caso clone o repositorio não se esquesa de iniciar a api usando powershell !! - npm run dev)
+
 ## coisas que aprendo fazendo esse projeto:
 - melhoria extrema em HTML/CSS
 - otimização de codigo JS
@@ -50,3 +52,10 @@ quanto do lado do cliente
 - melhoria na estrutura da api 
 - polimentos (29/09/2023)
 ( quando chegar em casa eu termino kkk)
+
+## v1.0.5 04/10/2023
+
+- agora a api tem suporte ao adicionar um novo post
+- configurações do back end com suporte aos novos post
+- preparativos para sistema de criptografia de ponta (com python seria mais facil 😅)
+- correções de bugs 
