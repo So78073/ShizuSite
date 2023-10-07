@@ -59,9 +59,9 @@ router.post('/', (req, res) => {
 router.post('/publiAPI', (req, res) => {
 
     const currentContent = readFile();
-    const { userid, txtid, text, likes, delikes, compartilhamentos } = req.body;
+    const { userid, txtid, text } = req.body;
 
-    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: likes, delikes: delikes, compartilhamentos: compartilhamentos }
+    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: 0, delikes: 0, compartilhamentos: 0 }
     fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
 
 });
@@ -83,10 +83,26 @@ router.post('/follow', (req, res) => {
     const content = readFile();
     const { currentUser, friendID } = req.body;
 
-    content[1][currentUser]['seguindo'].push(friendID);
+    if (content[1][currentUser]['seguindo'].includes(friendID)) {
+        const index1 = content[1][currentUser]['seguindo'].indexOf(friendID);
+        const index2 = content[1][friendID]['seguindo'].indexOf(currentUser);
+
+        if (index1 !== -1) {
+            content[1][currentUser]['seguindo'].splice(index1, 1);
+        }
+        if (index2 !== -1) {
+            content[1][friendID]['seguidores'].splice(index2, 1);
+        }
+
+    } else {
+        content[1][currentUser]['seguindo'].push(friendID);
+        content[1][friendID]['seguidores'].push(currentUser);
+    }
 
     fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
 });
+
+
 server.use(router);
 
 const port = 3000;
