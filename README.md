@@ -22,7 +22,6 @@ Nesta primeira versão, o foco é dar início ao projeto. Ele inclui:
 
 
 ## v1.0.1
-
 - Melhorias na responsividade (ainda apenas para desktop).
 - Aperfeiçoamento na função de adicionar uma nova postagem.
 - Melhor design para a área de novas postagens.
@@ -30,14 +29,11 @@ Nesta primeira versão, o foco é dar início ao projeto. Ele inclui:
 
 
 ## v1.0.2
-
 - Melhorias no CSS.
 - Melhorias na sintaxe HTML e CSS.
 - Implementação de suporte para a futura função de postagem.
 
-
 ## v1.0.3 28/09/2023
-
 - melhoria no tratamento de dados da API
 - Agora a função de login do site pergunda o nome que o
 usuario deseja que apareça para os outros usuarios !!
@@ -47,14 +43,12 @@ quanto do lado do cliente
 
 
 ## v1.0.4.1 29/09/2023
-
 - correções de bug de js
 - melhoria na estrutura da api 
 - polimentos (29/09/2023)
 ( quando chegar em casa eu termino kkk)
 
 ## v1.0.5 04/10/2023
-
 - agora a api tem suporte ao adicionar um novo post
 - configurações do back end com suporte aos novos post
 - preparativos para sistema de criptografia de ponta (com python seria mais facil 😅)
@@ -76,3 +70,8 @@ quanto do lado do cliente
 - sistema de adicionar amigo pronto
 - melhoria em algumas coisas no front.
 (sistema de adicionar amigos esta funcional na parte do back-end)
+
+## v1.0.7.1 - 07/10/2023
+- polimento no sistema de adicionar e remover amigos
+- agora no perfil da pessoa. inicia uma nova função que mostra todos os posts da pessoa
+- emplemento em algumas parte do codigo

@@ -16,6 +16,7 @@ function Ready() {
         .then(data => {
             const TextName = document.getElementById('nomeUser');
             const BioUser = document.getElementById('BioUserID');
+            const FollowButton = document.getElementById('FollowBtton')
             const Friend = data[1][friendID];
 
 
@@ -23,10 +24,12 @@ function Ready() {
             BioUser.textContent = Friend['biografia'];
 
             if (data[1][friendID]['seguidores'].includes(currentUser)) {
-                console.log("currentUser está seguindo friendID");
+                FollowButton.style.background = 'rgb(255, 30, 0)';
+                FollowButton.style.boxShadow = 'rgb(255, 30, 0)';
             } else {
-                // Executar outra ação se a condição não for satisfeita
-                console.log("currentUser não está seguindo friendID");
+
+                FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
+                FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
             }
 
             for (let i in data[1][friendID]["publications"]) {

@@ -84,14 +84,16 @@ router.post('/follow', (req, res) => {
     const { currentUser, friendID } = req.body;
 
     if (content[1][currentUser]['seguindo'].includes(friendID)) {
+
         const index1 = content[1][currentUser]['seguindo'].indexOf(friendID);
-        const index2 = content[1][friendID]['seguindo'].indexOf(currentUser);
 
         if (index1 !== -1) {
-            content[1][currentUser]['seguindo'].splice(index1, 1);
+            content[1][currentUser]['seguindo'].splice(index1, 1); // Remove o amigo que estava sendo seguido
         }
+
+        const index2 = content[1][friendID]['seguidores'].indexOf(currentUser);
         if (index2 !== -1) {
-            content[1][friendID]['seguidores'].splice(index2, 1);
+            content[1][friendID]['seguidores'].splice(index2, 1); // Remove o amigo que estava sendo seguido
         }
 
     } else {
@@ -101,6 +103,7 @@ router.post('/follow', (req, res) => {
 
     fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
 });
+
 
 
 server.use(router);
