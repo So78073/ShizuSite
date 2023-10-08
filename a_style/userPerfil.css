@@ -60,6 +60,7 @@ body {
 
 .mid {
     display: flex;
+    align-items: center;
 }
 
 .mid p {
@@ -72,8 +73,52 @@ body {
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
     transition: all .3s ease-in;
-    min-width: 50%;
+    min-width: 60%;
     min-height: 150px;
+}
+
+.midText {
+    width: 100%;
+    display: flex;
+}
+
+.btTXT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 180px;
+    margin-left: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 1px rgb(0, 102, 255);
+    border: none;
+    background: rgb(0, 102, 255);
+}
+
+.MidButtonText {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+.TxtAreaUser {
+    min-width: 60%;
+    min-height: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    resize: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    background: rgba(255, 255, 255, 0);
+    color: aliceblue;
+    font-size: 15px;
 }
 
 .emblemas {

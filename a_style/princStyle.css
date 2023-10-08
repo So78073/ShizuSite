@@ -337,6 +337,7 @@
         height: 100%;
         justify-content: center;
         align-items: center;
+        margin-bottom: 10px;
     }
     
     .TextBrownserFr {
@@ -345,7 +346,7 @@
         height: 35px;
         display: inline-block;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         margin-bottom: 10px;
         cursor: pointer;
         font-size: 16px;
@@ -363,7 +364,7 @@
         height: 35px;
         display: inline-block;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
         font-size: 16px;
         background: transparent;

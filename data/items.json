@@ -11,7 +11,7 @@
     "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
 }, {
     "1": { "nome": "shizu", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
-    "2": { "nome": "Helen Soares", "publications": { "2.2023.10.11.58": { "txt": "lorem!", "likes": 0, "delikes": 0, "compartilhamentos": 0 } }, "seguindo": [], "seguidores": [], "biografia": " " },
+    "2": { "nome": "Helen Soares", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "3": { "nome": "Tilda Soares De Assis", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "4": { "nome": "jefersson", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "5": { "nome": "Gustav", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
@@ -19,4 +19,14 @@
     "7": { "nome": "Doido", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "8": { "nome": "Alfredo Chupingoli", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "9": { "nome": "Pedro Soares", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " }
-}, { "shizu": "1", "Helen Soares": "2", "Tilda Soares De Assis": "3", "jefersson": "4", "Gustav": "5", "Danado do Kauã": "6", "Doido": "7", "Alfredo Chupingoli": "8", "Pedro Soares": "9" }]
+}, {
+    "shizu": "1",
+    "Helen Soares": "2",
+    "Tilda Soares De Assis": "3",
+    "jefersson": "4",
+    "Gustav": "5",
+    "Danado do Kauã": "6",
+    "Doido": "7",
+    "Alfredo Chupingoli": "8",
+    "Pedro Soares": "9"
+}]

@@ -28,12 +28,18 @@ Nesta primeira versão, o foco é dar início ao projeto. Ele inclui:
 - Polimento de CSS e outras pequenas melhorias.
 
 
-## v1.0.2
+## v1.0.2 04/10/2023
+- correções de bug de js
+- melhoria na estrutura da api 
+- polimentos (29/09/2023)
+( quando chegar em casa eu termino kkk)
+- agora a api tem suporte ao adicionar um novo post
+- configurações do back end com suporte aos novos post
+- preparativos para sistema de criptografia de ponta (com python seria mais facil 😅)
+- correções de bugs 
 - Melhorias no CSS.
 - Melhorias na sintaxe HTML e CSS.
 - Implementação de suporte para a futura função de postagem.
-
-## v1.0.3 28/09/2023
 - melhoria no tratamento de dados da API
 - Agora a função de login do site pergunda o nome que o
 usuario deseja que apareça para os outros usuarios !!
@@ -41,37 +47,24 @@ usuario deseja que apareça para os outros usuarios !!
 quanto do lado do cliente 
 -melhoria de estrutura do .json (data temporaria ate eu usar um BD)
 
-
-## v1.0.4.1 29/09/2023
-- correções de bug de js
-- melhoria na estrutura da api 
-- polimentos (29/09/2023)
-( quando chegar em casa eu termino kkk)
-
-## v1.0.5 04/10/2023
-- agora a api tem suporte ao adicionar um novo post
-- configurações do back end com suporte aos novos post
-- preparativos para sistema de criptografia de ponta (com python seria mais facil 😅)
-- correções de bugs 
-
-## v1.0.6 - 06/10/2023
+## v1.0.3 - 06/10/2023
 - Novo: Sistema de pesquisa de amigos.
 - Melhoria na infraestrutura de código em geral.
 - Correção de pequenos bugs.
 - Preparação da função de adição de amigos.
 - Melhoria na preparação da função de postagem direta.
-
-## v1.0.6.1 - 06/10/2023 ( parte da da manha )
 - melhorias em alguns scripts (como de costume)
 - agora quando você pesquisa por uma pessoa, não fica acumulando pessoas nos achados (correção de bug)
 - incrementando o sistema de crud de amigos
 
-## v1.0.7 - 06/10/2023 ( parte da tarde )
+## v1.0.4 - 06/10/2023 ( parte da tarde )
 - sistema de adicionar amigo pronto
 - melhoria em algumas coisas no front.
 (sistema de adicionar amigos esta funcional na parte do back-end)
-
-## v1.0.7.1 - 07/10/2023
 - polimento no sistema de adicionar e remover amigos
 - agora no perfil da pessoa. inicia uma nova função que mostra todos os posts da pessoa
 - emplemento em algumas parte do codigo
+- agora quando você entra no seu perfil, tem a opção de 
+mudar a sua bio (sistema incompleto)
+
+

@@ -15,13 +15,13 @@ function Ready() {
         .then(response => response.json())
         .then(data => {
             const TextName = document.getElementById('nomeUser');
-            const BioUser = document.getElementById('BioUserID');
+
             const FollowButton = document.getElementById('FollowBtton')
             const Friend = data[1][friendID];
 
 
             TextName.textContent = Friend['nome'];
-            BioUser.textContent = Friend['biografia'];
+
 
             if (data[1][friendID]['seguidores'].includes(currentUser)) {
                 FollowButton.style.background = 'rgb(255, 30, 0)';
@@ -31,6 +31,14 @@ function Ready() {
                 FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
                 FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
             }
+            if (currentUser == friendID) {
+                chageElement(1, Friend['biografia'])
+            } else {
+                chageElement(0, Friend['biografia'])
+            }
+
+            const BioUser = document.getElementById('BioUserID');
+            BioUser.textContent = Friend['biografia'];
 
             for (let i in data[1][friendID]["publications"]) {
                 let obj = data[1][friendID]["publications"][i]
@@ -116,4 +124,37 @@ function post(texto, like, delike, compartilhamentos, friendName) {
     `;
 
     page.insertAdjacentHTML('beforeend', htmlString);
+}
+
+function chageElement(type, bio) {
+    if (type == 0) {
+        const mid = document.getElementById('mid');
+
+        const htmlString = `
+        <p>
+        ${bio}
+        </p >
+
+        <div class="emblemas" style="height: 190px;">
+            <label for="">Em Breve: sistema de emblemas !</label>
+        </div>
+        `;
+        mid.insertAdjacentHTML('beforeend', htmlString);
+    }
+    if (type == 1) {
+        const mid = document.getElementById('mid');
+
+        const htmlString = `
+        <textarea name="" id="BioUserID" cols="30" rows="10" class="TxtAreaUser">
+        ${bio}
+        </textarea>
+        <button class="btTXT"></button>
+
+        <div class="emblemas" style="height: 190px;">
+            <label for="">Em Breve: sistema de emblemas !</label>
+        </div>
+        `;
+        mid.insertAdjacentHTML('beforeend', htmlString);
+    }
+
 }
