@@ -1,42 +1,6 @@
-var currentUser = sessionStorage.getItem('user');
+const currentUser = sessionStorage.getItem('user');
+RenderPage()
 
-
-function test(texto) {
-    const newPosts = document.getElementById('newPosts');
-
-    const htmlString = `
-    <div class="posts">
-    <div class="readyPost">
-        <div class="userInfoPost">
-            <img src="/IMG/USER_DEFAUT.png">
-            <h2 class="h2">NOME DO USUARIO</h2>
-        </div>
-        <p class="Ppost">${texto}</p>
-        <div class="ReactPost">
-            <div class="iconPost">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-            </div>
-            <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label for="">0</label>
-            </div>
-            <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label for="">0</label>
-            </div>
-            <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label for="">0</label>
-            </div>
-        </div>
-    </div>
-</div>
-    `;
-
-    newPosts.insertAdjacentHTML('beforeend', htmlString);
-}
 
 var popupOnOff = 0;
 
@@ -76,8 +40,6 @@ function newPostInPerfil() {
     const hora = dataAtual.getHours();
     const minuto = dataAtual.getMinutes();
 
-    // Crie a string única combinando os valores
-
     const struc = {
         userid: currentUser,
         txtid: `${currentUser}.${ano}.${mes}.${hora}.${minuto}`,
@@ -90,7 +52,7 @@ function newPostInPerfil() {
     console.log(struc['idpost'], struc['text']);
 
     fetch('http://localhost:3000/publiAPI', {
-            method: 'POST', // Correção: method em vez de mothod
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -103,11 +65,107 @@ function newPostInPerfil() {
         .catch(error => {
             console.error('Erro:', error);
         });
-    // Função assíncrona que busca os dados do usuário
 }
 
 
 
-// Função assíncrona que busca os dados do usuário
+function RenderPage() {
+    fetch('http://localhost:3000/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('1');
+            let friends = data[1][currentUser]['seguindo'];
 
-/*   */
+            for (let F in friends) {
+                let f = data[1][friends];
+
+                const p = Object.keys(f['publications'])
+
+
+                for (let i in p) {
+                    let publi = f['publications'][p[i]]
+                    const likes = Object.keys(publi['likes']).length
+                    const Dlikes = Object.keys(publi['Dlikes']).length
+                    const Compar = Object.keys(publi['Compar']).length
+
+                    CreatPostFriendPage(f['nome'], publi['txt'], likes, Dlikes, Compar)
+
+                }
+            }
+
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+}
+
+function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp) {
+
+    const newPosts = document.getElementById('newPosts');
+
+    const htmlString = `
+    <div class="posts">
+    <div class="readyPost">
+        <div class="userInfoPost">
+            <img src="/IMG/USER_DEFAUT.png">
+            <h2 class="h2">${nome}</h2>
+        </div>
+        <p class="Ppost">${texto}</p>
+        <div class="ReactPost">
+            <div class="iconPost">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+            </div>
+            <div class="reactions">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label for="">${Nlike}</label>
+            </div>
+            <div class="reactions">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label for="">${Ndeslike}</label>
+            </div>
+            <div class="reactions">
+                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label for="">${Ncomp}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="Plike">
+        
+    </div>
+
+</div>
+    `;
+
+    newPosts.insertAdjacentHTML('beforeend', htmlString);
+
+}
+
+
+
+
+
+/*
+<div class="Guy" id="divGuy1">
+<div class="PeoplesReact">
+    <img src="/IMG/USER_DEFAUT.png" class="imgFrinds">
+    <button class="friendsBT" onclick="ClickFriend()">${nome}</button>
+</div>
+<div class="PeoplesReact">
+    <img src="/IMG/USER_DEFAUT.png" class="imgFrinds">
+    <button class="friendsBT" onclick="ClickFriend()">${nome}</button>
+</div>
+<div class="PeoplesReact">
+    <img src="/IMG/USER_DEFAUT.png" class="imgFrinds">
+    <button class="friendsBT" onclick="ClickFriend()">${nome}</button>
+</div>
+</div>
+
+*/

@@ -10,15 +10,15 @@
     "Pedro": { "senha": "777", "email": "p@gmail.com", "id": "9" },
     "macaco": { "senha": "bnn", "email": "m@gmail.com", "id": "9" }
 }, {
-    "1": { "nome": "shizu", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
-    "2": { "nome": "Helen Soares", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
+    "1": { "nome": "shizu", "publications": { "1.2023.10.8.19": { "txt": "teste de primeiro post permanente do site. {} [] 90234234 ----\n\ntest\ntest\ntest\ntest \n🤡☠👻", "likes": ["1"], "Dlikes": [], "Compar": [] } }, "seguindo": ["2"], "seguidores": ["2"], "biografia": " " },
+    "2": { "nome": "Helen Soares", "publications": {}, "seguindo": ["1"], "seguidores": ["1"], "biografia": " " },
     "3": { "nome": "Tilda Soares De Assis", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "4": { "nome": "jefersson", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "5": { "nome": "Gustav", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "6": { "nome": "Danado do Kauã", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "7": { "nome": "Doido", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
     "8": { "nome": "Alfredo Chupingoli", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " },
-    "9": { "nome": "Pedro Soares", "publications": {}, "seguindo": [], "seguidores": [], "biografia": " " }
+    "9": { "nome": "Pedro Soares", "publications": {}, "seguindo": [], "seguidores": ["3"], "biografia": " " }
 }, {
     "shizu": "1",
     "Helen Soares": "2",

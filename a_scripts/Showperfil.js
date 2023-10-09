@@ -31,8 +31,10 @@ function Ready() {
                 FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
                 FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
             }
+
             if (currentUser == friendID) {
                 chageElement(1, Friend['biografia'])
+                FollowButton.style.display = 'none';
             } else {
                 chageElement(0, Friend['biografia'])
             }
@@ -43,9 +45,6 @@ function Ready() {
             for (let i in data[1][friendID]["publications"]) {
                 let obj = data[1][friendID]["publications"][i]
 
-                console.log(obj);
-
-                console.log(obj);
                 post(obj['txt'], 0, 0, 0, Friend['nome'])
 
             }

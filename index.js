@@ -61,7 +61,7 @@ router.post('/publiAPI', (req, res) => {
     const currentContent = readFile();
     const { userid, txtid, text } = req.body;
 
-    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: 0, delikes: 0, compartilhamentos: 0 }
+    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: [], Dlikes: [], Compar: [] }
     fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
 
 });
