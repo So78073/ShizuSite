@@ -1,10 +1,6 @@
-const friendID = sessionStorage.getItem('friendClick');
-const currentUser = sessionStorage.getItem('user');
-
-console.log(friendID);
-
 function Ready() {
-
+    const friendID = sessionStorage.getItem('friendClick');
+    const currentUser = sessionStorage.getItem('user');
 
     fetch('http://localhost:3000/', {
             method: 'GET',
@@ -26,21 +22,22 @@ function Ready() {
             if (data[1][friendID]['seguidores'].includes(currentUser)) {
                 FollowButton.style.background = 'rgb(255, 30, 0)';
                 FollowButton.style.boxShadow = 'rgb(255, 30, 0)';
+                FollowButton.textContent = 'Deixar';
             } else {
 
                 FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
                 FollowButton.style.boxShadow = 'rgb(0, 102, 255)';
+                FollowButton.textContent = 'Seguir';
             }
 
             if (currentUser == friendID) {
-                chageElement(1, Friend['biografia'])
+                chageElement(1, Friend['bio'])
                 FollowButton.style.display = 'none';
             } else {
-                chageElement(0, Friend['biografia'])
+                chageElement(0, Friend['bio'])
             }
 
-            const BioUser = document.getElementById('BioUserID');
-            BioUser.textContent = Friend['biografia'];
+
 
             for (let i in data[1][friendID]["publications"]) {
                 let obj = data[1][friendID]["publications"][i]
@@ -48,6 +45,8 @@ function Ready() {
                 post(obj['txt'], 0, 0, 0, Friend['nome'])
 
             }
+            const BioUser = document.getElementById('BioUserID');
+            console.log(Friend['bio']);
 
         })
         .catch(error => {

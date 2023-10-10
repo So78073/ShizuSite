@@ -1,5 +1,6 @@
 function RenderPage() {
     const currentUser = sessionStorage.getItem('user');
+    console.log(currentUser);
     fetch('http://localhost:3000/', {
             method: 'GET',
             headers: {
@@ -25,6 +26,7 @@ function RenderPage() {
 
                 console.log();
                 CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp)
+
 
 
             }
@@ -109,7 +111,9 @@ function readyPage() {
             return response.json();
         })
         .then((data) => {
-            username.textContent = data[1][currentUser]['nome'];
+            const user = data[1][currentUser]
+            username.textContent = user['nome'];
+            document.title = `${user['nome']}` + ' ShSite';
         })
         .catch((error) => {
             // Trata erros de rede ou de outra natureza

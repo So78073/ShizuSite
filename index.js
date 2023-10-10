@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
         res.send("USUARIO EXISTENTE");
     } else {
         currentContent[0][user] = { senha: senha, email: email, id: idUser };
-        currentContent[1][idUser] = { "nome": String(nome), "publications": {}, "amigos": {} };
+        currentContent[1][idUser] = { "nome": String(nome), "publications": {}, "seguindo": [], "seguidores": [], "bio": "" };
         currentContent[2][nome] = idUser;
 
 
