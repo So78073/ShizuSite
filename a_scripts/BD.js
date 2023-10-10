@@ -39,6 +39,7 @@ function GETdata() {
             if (user['user'] in data[0]) {
                 if (user['senha'] == data[0][user['user']]['senha'] && user['email'] == data[0][user['user']]['email']) {
                     sessionStorage.setItem('user', `${data[0][user['user']]['id']}`);
+
                     window.location.href = "../a_project/princPage.html"
 
                 } else { alert(' senha ou email invalidos :(') }

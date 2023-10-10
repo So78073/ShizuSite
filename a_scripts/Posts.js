@@ -1,7 +1,3 @@
-const currentUser = sessionStorage.getItem('user');
-RenderPage()
-
-
 var popupOnOff = 0;
 
 function openPOPup() {
@@ -18,7 +14,12 @@ function openPOPup() {
 async function fetchUserData() {
     const apiUrl = 'http://localhost:3000/';
     try {
-        const response = await fetch(apiUrl, optionsGET);
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
         if (!response.ok) {
             throw new Error(`Erro de rede! Status: ${response.status}`);
         }
@@ -32,6 +33,7 @@ async function fetchUserData() {
 
 /* APLICAÇÃO EM SI (ADICIONAR NOVO POST AO PERFIL) */
 function newPostInPerfil() {
+    const currentUser = sessionStorage.getItem('user');
     const text = document.getElementById('textpost');
 
     const dataAtual = new Date();
@@ -69,84 +71,8 @@ function newPostInPerfil() {
 
 
 
-function RenderPage() {
-    fetch('http://localhost:3000/', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('1');
-            let friends = data[1][currentUser]['seguindo'];
-
-            for (let F in friends) {
-                let f = data[1][friends];
-
-                const p = Object.keys(f['publications'])
 
 
-                for (let i in p) {
-                    let publi = f['publications'][p[i]]
-                    const likes = Object.keys(publi['likes']).length
-                    const Dlikes = Object.keys(publi['Dlikes']).length
-                    const Compar = Object.keys(publi['Compar']).length
-
-                    CreatPostFriendPage(f['nome'], publi['txt'], likes, Dlikes, Compar)
-
-                }
-            }
-
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-}
-
-function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp) {
-
-    const newPosts = document.getElementById('newPosts');
-
-    const htmlString = `
-    <div class="posts">
-    <div class="readyPost">
-        <div class="userInfoPost">
-            <img src="/IMG/USER_DEFAUT.png">
-            <h2 class="h2">${nome}</h2>
-        </div>
-        <p class="Ppost">${texto}</p>
-        <div class="ReactPost">
-            <div class="iconPost">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-            </div>
-            <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label for="">${Nlike}</label>
-            </div>
-            <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label for="">${Ndeslike}</label>
-            </div>
-            <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label for="">${Ncomp}</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="Plike">
-        
-    </div>
-
-</div>
-    `;
-
-    newPosts.insertAdjacentHTML('beforeend', htmlString);
-
-}
 
 
 
