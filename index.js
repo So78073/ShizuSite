@@ -80,9 +80,11 @@ router.get('/friends', (req, res) => {
     res.send(achados);
 });
 router.get('/friends/crud', (req, res) => {
-    const { id } = req.query;
     const content = readFile();
-    res.send(content[1][id]);
+    const { id } = req.query;
+    const key = decodeKey(id)
+
+    /* TERMINAR */
 
     fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
 });
@@ -114,12 +116,14 @@ router.post('/follow', (req, res) => {
 
 function decodeKey(key) {
     const partes = key.split('-');
-    if (partes.length === 2) {
-        const numeroAntesDoHifen = partes[0];
-        const numeroDepoisDoHifen = partes[1];
+    if (partes.length === 3) {
+        const n1 = partes[0];
+        const n2 = partes[1];
+        const n3 = partes[1];
         return {
-            k: numeroAntesDoHifen,
-            d: numeroDepoisDoHifen
+            a: n1,
+            b: n2,
+            c: n3
         };
     }
     // Retorna um valor padrão se a extração falhar
