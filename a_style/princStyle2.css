@@ -1,0 +1,274 @@
+/* ABA DE AMIGOS NO CANTO DIREITO*/
+
+.friend {
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    transition: all .3s ease-in;
+}
+
+.friend_div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.TitleFrined {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inp1 {
+    border-radius: 7px;
+    width: 90%;
+    outline: none;
+    border-color: rgba(240, 248, 255, 0);
+    text-align: center;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+}
+
+.left_title {
+    display: flex;
+    text-align: center;
+    width: 20%;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+.right_title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inp2 {
+    border-color: rgba(240, 248, 255, 0);
+    border-radius: 15px;
+    width: 95%;
+    height: 80px;
+    outline: none;
+    text-indent: 10px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.26);
+}
+
+.crudADDnewpost button {
+    display: flex;
+    width: 72px;
+    height: 20px;
+    margin-top: 9px;
+    border-radius: 50px;
+    border-bottom: 1px;
+    outline: none;
+    border-color: rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.piblicationBT {
+    background: rgba(255, 255, 255, 0.233);
+}
+
+.friendsBT {
+    color: aliceblue;
+    text-align: center;
+    width: 100%;
+    min-height: 40px;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    background: rgba(255, 255, 255, 0.233);
+    margin-left: 5px;
+}
+
+.imgFrinds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0);
+}
+
+.imgFrinds:hover {
+    transform: scale(1.5);
+}
+
+.browserFR {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.TextBrownserFr {
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    background: rgba(255, 255, 255, 0.233);
+    margin-left: 5px;
+}
+
+.friendsBrowserBT {
+    color: aliceblue;
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    background: rgba(255, 255, 255, 0.233);
+    margin-left: 5px;
+}
+
+
+/*  POSTS ----------------------------------------------------------------------------------------- */
+
+.posts {
+    margin-top: 10px;
+    width: 90%;
+    height: 100%;
+}
+
+.h2 {
+    color: aliceblue;
+}
+
+.readyPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 19px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    background: rgba(255, 255, 255, 0);
+    margin-top: 1%;
+}
+
+.userInfoPost {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    ;
+}
+
+.userInfoPost img {
+    margin-right: 5px;
+    left: 3px;
+}
+
+.bt_react {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    margin-right: 5px;
+}
+
+.bt_react:hover {
+    .img_icon {
+        animation: userIMG 0.5s;
+    }
+}
+
+.h3_post {
+    justify-content: center;
+    background: aliceblue;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    color: rgb(92, 92, 92);
+    text-indent: 20px;
+    height: 18px;
+}
+
+.Ppost {
+    height: 100%;
+    width: 90%;
+    background: aliceblue;
+    white-space: pre-line;
+    border-radius: 8px;
+    color: rgb(92, 92, 92);
+    padding: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.ReactPost {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-right: 20px;
+    justify-content: end;
+}
+
+.reactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    color: aliceblue;
+    font-size: 15px;
+}
+
+.iconPost {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.Guy {
+    display: flex;
+}
+
+.PeoplesReact {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}

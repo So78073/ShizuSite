@@ -44,7 +44,7 @@ function newPostInPerfil() {
 
     const struc = {
         userid: currentUser,
-        txtid: `${currentUser}.${ano}.${mes}.${hora}.${minuto}`,
+        txtid: `${currentUser}-${ano}.${mes}.${hora}.${minuto}`,
         text: text.value,
         like: 0,
         deslike: 0,

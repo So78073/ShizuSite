@@ -31,10 +31,11 @@ const readFile = () => {
 /* login route */
 
 router.get('/', (req, res) => {
-
     const content = readFile();
     res.send(content);
 });
+
+
 
 router.post('/', (req, res) => {
     const currentContent = readFile();
@@ -78,6 +79,13 @@ router.get('/friends', (req, res) => {
     }
     res.send(achados);
 });
+router.get('/friends/crud', (req, res) => {
+    const { id } = req.query;
+    const content = readFile();
+    res.send(content[1][id]);
+
+    fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
+});
 
 router.post('/follow', (req, res) => {
     const content = readFile();
@@ -103,6 +111,20 @@ router.post('/follow', (req, res) => {
 
     fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
 });
+
+function decodeKey(key) {
+    const partes = key.split('-');
+    if (partes.length === 2) {
+        const numeroAntesDoHifen = partes[0];
+        const numeroDepoisDoHifen = partes[1];
+        return {
+            k: numeroAntesDoHifen,
+            d: numeroDepoisDoHifen
+        };
+    }
+    // Retorna um valor padrão se a extração falhar
+    return null;
+}
 
 
 
