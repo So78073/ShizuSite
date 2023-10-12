@@ -64,11 +64,11 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
                 <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
             </div>
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI()" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
+                <button class="bt_react" onclick="reactpostAPI(${currentUser}, ${idF}, ${idpost}, 'Dlikes')" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
                 <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ndeslike}</label>
             </div>
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI()" data-pai="${idpost}"><img src="/IMG/reacts/compartilhar.png" class="img_icon"></button>
+                <button class="bt_react" onclick="reactpostAPI(${currentUser}, ${idF}, ${idpost}, 'Compar')" data-pai="${idpost}"><img src="/IMG/reacts/compartilhar.png" class="img_icon"></button>
                 <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ncomp}</label>
             </div>
 
