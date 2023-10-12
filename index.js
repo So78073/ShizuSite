@@ -79,14 +79,40 @@ router.get('/friends', (req, res) => {
     }
     res.send(achados);
 });
-router.get('/friends/crud', (req, res) => {
-    const content = readFile();
-    const { id } = req.query;
-    const key = decodeKey(id)
+router.post('/friends', (req, res) => {
+    const data = readFile();
+    const { Cuser, Fuser, IDpost, Type } = req.body;
 
-    /* TERMINAR */
 
-    fs.writeFileSync(jsonPath, JSON.stringify(content), 'utf-8');
+    if (data[1][Fuser]["publications"][IDpost][Type].includes(Cuser)) {
+
+        const index = data[1][Fuser]["publications"][IDpost][Type].indexOf(Cuser)
+        data[1][Fuser]["publications"][IDpost][Type].splice(index, 1);
+
+    } else {
+        if (Type == "Compar") {
+            if (data[1][Fuser]["publications"][IDpost]["Compar"].includes(Cuser)) {
+                const index = data[1][Fuser]["publications"][IDpost]["Compar"].indexOf(Cuser)
+                data[1][Fuser]["publications"][IDpost]["Compar"].splice(index, 1);
+            } else {
+                data[1][Fuser]["publications"][IDpost]["Compar"].push(Cuser)
+            }
+        } else {
+            const index1 = data[1][Fuser]["publications"][IDpost]["likes"].indexOf(Cuser)
+            const index2 = data[1][Fuser]["publications"][IDpost]["Dlikes"].indexOf(Cuser)
+
+            data[1][Fuser]["publications"][IDpost]["likes"].splice(index1, 1);
+            data[1][Fuser]["publications"][IDpost]["Dlikes"].splice(index2, 1);
+
+            data[1][Fuser]["publications"][IDpost][Type].push(Cuser)
+        }
+
+    }
+    fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
+
+
+
+
 });
 
 router.post('/follow', (req, res) => {

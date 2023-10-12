@@ -27,8 +27,7 @@ function RenderPage() {
                 const Comp = Object.keys(Cpubli['Compar']).length;
 
                 const idpost = publications[round];
-                const keylike = `${currentUser}-${idpost}`
-                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, keylike)
+                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f)
 
 
 
@@ -42,7 +41,7 @@ function RenderPage() {
 
 }
 
-function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, keylike) {
+function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
     const newPosts = document.getElementById('newPosts');
 
@@ -61,15 +60,15 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, keylik
                 <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
             </div>
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI(this, ${keylike})" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <button class="bt_react" onclick="reactpostAPI(${currentUser}, ${idF}, ${idpost}, 'likes')" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>
                 <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
             </div>
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI(this)" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
+                <button class="bt_react" onclick="reactpostAPI()" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
                 <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ndeslike}</label>
             </div>
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI(this)" data-pai="${idpost}"><img src="/IMG/reacts/compartilhar.png" class="img_icon"></button>
+                <button class="bt_react" onclick="reactpostAPI()" data-pai="${idpost}"><img src="/IMG/reacts/compartilhar.png" class="img_icon"></button>
                 <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ncomp}</label>
             </div>
 
@@ -88,19 +87,22 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, keylik
 }
 
 /*react post */
-function reactpostAPI(user, userpost) {
+function reactpostAPI(Cuser, Fuser, IDpost, Type) {
 
-    const id = `${user}-${userpost}`;
-    fetch(`http://localhost:3000/friends/crud?nome=${id}`, {
-            method: 'GET',
+    const obj = {
+        Cuser: Cuser,
+        Fuser: Fuser,
+        IDpost: IDpost,
+        type: Type
+    }
+    fetch(`http://localhost:3000/friends/crud`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            body: JSON.stringify(obj)
         })
         .then(response => response.json())
-        .then(data => {
-
-        })
         .catch(error => {
             console.error('Erro:', error);
         });
