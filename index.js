@@ -109,10 +109,6 @@ router.post('/friends', (req, res) => {
 
     }
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
-
-
-
-
 });
 
 router.post('/follow', (req, res) => {
