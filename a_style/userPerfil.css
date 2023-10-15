@@ -82,21 +82,62 @@ body {
     display: flex;
 }
 
+
+/* bt save bio api v */
+
 .btTXT {
     display: flex;
     justify-content: center;
     align-items: center;
     color: aliceblue;
-    justify-content: center;
-    align-items: center;
-    width: 10px;
+    width: 40px;
     height: 180px;
     margin-left: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 20px 1px rgb(0, 102, 255);
     border: none;
     background: rgb(0, 102, 255);
+    animation-name: animback;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
+
+.btTXT:hover {
+    animation-name: anim;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes anim {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes animback {
+    from {
+        transform: scale(1.05);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.Salvarbio {
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+    justify-content: center;
+}
+
+
+/* bt save bio api ^ */
 
 .MidButtonText {
     height: 40px;

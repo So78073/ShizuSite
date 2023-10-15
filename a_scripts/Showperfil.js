@@ -1,6 +1,8 @@
+const Fuser = sessionStorage.getItem('friendClick');
+const Cuser = sessionStorage.getItem('user');
+
 function Ready() {
-    const friendID = sessionStorage.getItem('friendClick');
-    const currentUser = sessionStorage.getItem('user');
+
 
     fetch('http://localhost:3000/', {
             method: 'GET',
@@ -13,13 +15,13 @@ function Ready() {
             const TextName = document.getElementById('nomeUser');
 
             const FollowButton = document.getElementById('FollowBtton')
-            const Friend = data[1][friendID];
+            const Friend = data[1][Fuser];
 
 
             TextName.textContent = Friend['nome'];
 
 
-            if (data[1][friendID]['seguidores'].includes(currentUser)) {
+            if (data[1][Fuser]['seguidores'].includes(Cuser)) {
                 FollowButton.style.background = 'rgb(255, 30, 0)';
                 FollowButton.style.boxShadow = 'rgb(255, 30, 0)';
                 FollowButton.textContent = 'Deixar';
@@ -30,7 +32,7 @@ function Ready() {
                 FollowButton.textContent = 'Seguir';
             }
 
-            if (currentUser == friendID) {
+            if (Cuser == Fuser) {
                 chageElement(1, Friend['bio'])
                 FollowButton.style.display = 'none';
             } else {
@@ -39,10 +41,16 @@ function Ready() {
 
 
 
-            for (let i in data[1][friendID]["publications"]) {
-                let obj = data[1][friendID]["publications"][i]
+            for (let i in data[1][Fuser]["publications"]) {
+                const obj = data[1][Fuser]["publications"][i]
 
-                post(obj['txt'], 0, 0, 0, Friend['nome'])
+                const likes = Object.keys(obj['likes']).length
+                const Dlikes = Object.keys(obj['Dlikes']).length
+                const Compar = Object.keys(obj['Compar']).length
+                const idPost = Object.keys(obj['Compar'])
+                const chave = Object.keys(obj)
+
+                post(Friend['nome'], obj['txt'], likes, Dlikes, Compar, chave, Fuser)
 
             }
             const BioUser = document.getElementById('BioUserID');
@@ -60,8 +68,8 @@ Ready();
 function seguir() {
 
     const info = {
-        currentUser: currentUser,
-        friendID: friendID
+        currentUser: Cuser,
+        friendID: Fuser
     }
 
     fetch('http://localhost:3000/follow', {
@@ -87,15 +95,16 @@ function back() {
 
 
 
-function post(texto, like, delike, compartilhamentos, friendName) {
+function post(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
+
     const page = document.getElementById('page');
 
     const htmlString = `
-    <div class="posts">
+    <div class="posts" id="${idpost}">
     <div class="readyPost">
         <div class="userInfoPost">
             <img src="/IMG/USER_DEFAUT.png">
-            <h2 class="h2">${friendName}</h2>
+            <h2 class="h2">${nome}</h2>
         </div>
         <p class="Ppost">${texto}</p>
         <div class="ReactPost">
@@ -105,20 +114,26 @@ function post(texto, like, delike, compartilhamentos, friendName) {
                 <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
             </div>
             <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label>${like}</label>
+            <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
             </div>
             <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label>${delike}</label>
+            <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'Dlikes', '${idpost}')" id="Dlike-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
+                <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ndeslike}</label>
             </div>
             <div class="reactions">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label>${compartilhamentos}</label>
+            <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'Compar', '${idpost}')" id="Comp-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/comp.png" class="img_icon"></button>
+                <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ncomp}</label>
             </div>
+
         </div>
     </div>
-</div>
+    
+    <div class="Plike" id="pl.${idpost}">
+
+    </div>
+
+    </div>
     `;
 
     page.insertAdjacentHTML('beforeend', htmlString);
@@ -143,10 +158,8 @@ function chageElement(type, bio) {
         const mid = document.getElementById('mid');
 
         const htmlString = `
-        <textarea name="" id="BioUserID" cols="30" rows="10" class="TxtAreaUser">
-        ${bio}
-        </textarea>
-        <button class="btTXT"></button>
+        <textarea id="BioUserID" cols="30" rows="10" class="TxtAreaUser">${bio}</textarea>
+        <button class="btTXT" onclick="saveBio()">salvar bio</button>
 
         <div class="emblemas" style="height: 190px;">
             <label for="">Em Breve: sistema de emblemas !</label>
@@ -156,3 +169,44 @@ function chageElement(type, bio) {
     }
 
 }
+
+function saveBio() {
+    const bio = document.getElementById('BioUserID').value;
+    const obj = {
+        Cuser: Cuser,
+        bio: bio
+    }
+
+    fetch('http://localhost:3000/bio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+
+}
+
+/*
+fetch('http://localhost:3000/bio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+*/

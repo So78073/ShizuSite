@@ -12,7 +12,10 @@ function RenderPage() {
         .then(response => response.json())
         .then(data => {
 
-            const Follows = data[1][currentUser]['seguindo'];
+            let Follows = data[1][currentUser]['seguindo'];
+            const followConfig = document.getElementById('FollowBtton');
+            Follows.push(currentUser);
+
 
             let round = 0
             for (let f in Follows) {

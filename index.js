@@ -111,6 +111,14 @@ router.post('/friends', (req, res) => {
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
 });
 
+router.post('/bio', (req, res) => {
+    const data = readFile();
+    const { Cuser, bio } = req.body;
+    data[1][Cuser]["bio"] = bio
+    res.send("bio do usuario alterada")
+    fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
+});
+
 router.post('/follow', (req, res) => {
     const content = readFile();
     const { currentUser, friendID } = req.body;
