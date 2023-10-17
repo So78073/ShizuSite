@@ -59,8 +59,8 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <p class="Ppost">${texto}</p>
         <div class="ReactPost">
             <div class="iconPost">
-            <textarea name="" id="" cols="30" rows="10" class="Commit"></textarea>
-            <button class="InviteCommit">Enviar</button>
+            <textarea name="" id="ta-${idpost}" cols="30" rows="10" class="Commit"></textarea>
+            <button class="InviteCommit" data-key="ta-${idpost}" id="CT">Enviar</button>
             
             </div>
             <div class="reactions">

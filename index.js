@@ -62,7 +62,7 @@ router.post('/publiAPI', (req, res) => {
     const currentContent = readFile();
     const { userid, txtid, text } = req.body;
 
-    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: [], Dlikes: [], Compar: [] }
+    currentContent[1][userid]['publications'][txtid] = { txt: text, likes: [], Dlikes: [], Compar: [], commits: {} }
     fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
 
 });
@@ -119,6 +119,23 @@ router.post('/bio', (req, res) => {
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
 });
 
+router.post('/commit', (req, res) => {
+    const data = readFile();
+    const { commit, idkey, Cuser } = req.body;
+    const keys = decodeKey(idkey)
+
+    const dataAtual = new Date();
+    const ano = dataAtual.getFullYear();
+    const mes = dataAtual.getMonth() + 1;
+    const hora = dataAtual.getHours();
+    const minuto = dataAtual.getMinutes();
+    const idCommit = `${Cuser}-${ano}.${mes}.${hora}.${minuto}`
+
+    data[1][keys.a]["publications"][idkey]['commits'][idCommit] = { commit: commit, likes: [], Dlikes: [] }
+
+    fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
+});
+
 router.post('/follow', (req, res) => {
     const content = readFile();
     const { currentUser, friendID } = req.body;
@@ -146,17 +163,15 @@ router.post('/follow', (req, res) => {
 
 function decodeKey(key) {
     const partes = key.split('-');
-    if (partes.length === 3) {
+    if (partes.length === 2) {
         const n1 = partes[0];
         const n2 = partes[1];
-        const n3 = partes[1];
+
         return {
             a: n1,
             b: n2,
-            c: n3
         };
     }
-    // Retorna um valor padrão se a extração falhar
     return null;
 }
 

@@ -42,6 +42,7 @@ function newPostInPerfil() {
     const hora = dataAtual.getHours();
     const minuto = dataAtual.getMinutes();
 
+
     const struc = {
         userid: currentUser,
         txtid: `${currentUser}-${ano}.${mes}.${hora}.${minuto}`,
