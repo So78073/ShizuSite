@@ -59,9 +59,9 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <p class="Ppost">${texto}</p>
         <div class="ReactPost">
             <div class="iconPost">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+            <textarea name="" id="" cols="30" rows="10" class="Commit"></textarea>
+            <button class="InviteCommit">Enviar</button>
+            
             </div>
             <div class="reactions">
             <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>

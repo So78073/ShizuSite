@@ -109,9 +109,8 @@ function post(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <p class="Ppost">${texto}</p>
         <div class="ReactPost">
             <div class="iconPost">
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+
+            
             </div>
             <div class="reactions">
             <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>
