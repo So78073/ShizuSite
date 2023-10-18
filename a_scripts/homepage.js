@@ -51,39 +51,74 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
     const htmlString = `
     <div class="posts" id="${idpost}">
-    <div class="readyPost">
-        <div class="userInfoPost">
-            <img src="/IMG/USER_DEFAUT.png">
-            <h2 class="h2">${nome}</h2>
-        </div>
-        <p class="Ppost">${texto}</p>
-        <div class="ReactPost">
-            <div class="iconPost">
-            <textarea name="" id="ta-${idpost}" cols="30" rows="10" class="Commit"></textarea>
-            <button class="InviteCommit" data-key="ta-${idpost}" id="CT">Enviar</button>
+        <div class="readyPost">
+            <div class="userInfoPost">
+                <img src="/IMG/USER_DEFAUT.png">
+                <h2 class="h2">${nome}</h2>
+                <p>${texto}</p>
+            </div>
+            
+
+            <div>
+            
+            
             
             </div>
-            <div class="reactions">
-            <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
+            <div class="ReactPost">
+                <div class="ChatArea">
+                    <textarea name="" id="ta-${idpost}" cols="30" rows="10" class="Commit"></textarea>
+                    <button class="InviteCommit" data-key="ta-${idpost}" id="CT">Enviar</button>
+                </div>
+
+                <div class="reactions">
+                    <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                    <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
+                </div>
+
+                <div class="reactions">
+                    <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'Dlikes', '${idpost}')" id="Dlike-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
+                    <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ndeslike}</label>
+                </div>
+
+                
+
+                <div class="reactions">
+                    <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'Compar', '${idpost}')" id="Comp-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/comp.png" class="img_icon"></button>
+                    <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ncomp}</label>
+                </div>
+                
             </div>
-            <div class="reactions">
-            <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'Dlikes', '${idpost}')" id="Dlike-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/delike.png" class="img_icon"></button>
-                <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ndeslike}</label>
-            </div>
-            <div class="reactions">
-            <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'Compar', '${idpost}')" id="Comp-${idpost}" data-pai="${idpost}"><img src="/IMG/reacts/comp.png" class="img_icon"></button>
-                <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ncomp}</label>
-            </div>
+
+            <div class="Plike" id="pl.${idpost}">
 
         </div>
-    </div>
-    
-    <div class="Plike" id="pl.${idpost}">
 
-    </div>
+        <div class="ChatZone">
+            <button class="ChatZoneOnOff">Comentarios</button>
+            
 
-    </div>
+            <div class="commits">
+                <div class="reactions">
+                    <div class="reactions">
+                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                        <label></label>
+                    </div>
+                    <div class="reactions">
+                        <button class="bt_react"><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
+                        <label></label>
+                    </div>
+                    <div class="reactions">
+                        <button class="bt_react"><img src="/IMG/reacts/comp.png" class="img_icon"></button>
+                        <label></label>
+                    </div> 
+                </div>
+
+            </div>
+        </div>
+
+        <div class="likeChat">
+                               
+    </div> 
     `;
 
     newPosts.insertAdjacentHTML('beforeend', htmlString);
