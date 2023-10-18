@@ -95,22 +95,37 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
         <div class="ChatZone">
             <button class="ChatZoneOnOff">Comentarios</button>
-            
 
             <div class="commits">
-                <div class="reactions">
-                    <div class="reactions">
-                        <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                        <label></label>
+
+                <div class="card">
+                    <div>
+                        <div class="commituser">
+                            <div class="UserInfoChat">
+                                <img src="/IMG/USER_DEFAUT.png" style="margin-left: 15px;">
+                                <label class="CommitUserName">Nome Do Usuario</label>
+                            </div>
+
+                            <div class="reactions">
+                                    <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                                    <label></label>
+                                </div>
+                                <div class="reactions">
+                                    <button class="bt_react"><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
+                                    <label></label>
+                                </div>
+                                <div class="reactions">
+                                    <button class="bt_react"><img src="/IMG/reacts/comp.png" class="img_icon"></button>
+                                    <label></label>
+                                </div> 
+
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="reactions">
-                        <button class="bt_react"><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
-                        <label></label>
+                    <div class="committext">
+                        asjdlaksjdakljdlakjsdkljasdjld
                     </div>
-                    <div class="reactions">
-                        <button class="bt_react"><img src="/IMG/reacts/comp.png" class="img_icon"></button>
-                        <label></label>
-                    </div> 
                 </div>
 
             </div>
@@ -119,6 +134,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <div class="likeChat">
                                
     </div> 
+    <div class="reactions">
     `;
 
     newPosts.insertAdjacentHTML('beforeend', htmlString);
