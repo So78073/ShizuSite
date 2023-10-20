@@ -67,13 +67,15 @@ quanto do lado do cliente
 - agora quando você entra no seu perfil, tem a opção de 
 mudar a sua bio (sistema incompleto)
 
-## v1.0.5 - (09/10/2023)
-- sistema de like / deslike / compartilhamento (v2.0)
-- feed de post automaticos (v2.0)
+## v1.0.5 - (09/10/2023) estage 4
+- sistema de like / deslike / compartilhamento (v4.0)
+- feed de post automaticos (v4.0)
 - melhorias na css / html 
 - melhoria de estrutura de codigo
 - melhoria na estrutura do banco de dados com a api
 - preparação da infraestrutura para os posts com imagens
 (ainda em andamento)
+
+
 
 
