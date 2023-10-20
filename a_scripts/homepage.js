@@ -55,19 +55,19 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <div class="userInfoPost">
             <img src="/IMG/USER_DEFAUT.png">
             <h2 class="h2">${nome}</h2>
-            <p>${texto}</p>
+            <p stylr="border-radiu: 5px;">${texto}</p>
         </div>
 
         <div class="ReactPost">
             <div class="ChatArea">
-                <textarea name="" id="ta-${idpost}" cols="30" rows="10" class="Commit"></textarea>
+                <textarea id="ta-${idpost}" cols="30" rows="10" class="Commit"></textarea>
                 <button class="InviteCommit" data-key="ta-${idpost}" id="CT">Enviar</button>
             </div>
 
             <div class="reactions">
                 <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}">
                     <img src="/IMG/reacts/like.png" class="img_icon">
-                </button>
+                    </button>
                 <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
             </div>
 
@@ -114,6 +114,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
                     </div>
                 </div>
 
+                <canvas class="CanvasChat"></canvas>
             </div>
         </div>
 
