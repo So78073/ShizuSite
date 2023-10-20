@@ -97,6 +97,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .ChatZoneOnOff {
@@ -107,7 +108,6 @@
     color: aliceblue;
     font-size: 15px;
     background: rgb(0, 153, 255);
-    box-shadow: 0px 0px 2px 1px rgb(0, 119, 255);
 }
 
 .IMGuserChat {
@@ -132,20 +132,23 @@
     flex-direction: column;
     width: 98%;
     height: 100%;
-    background: yellow;
+    background: none;
     margin-top: 10px;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
-    width: 100%;
-    height: 70px;
+    min-height: 70px;
     border-radius: 5px;
-    background: rgb(206, 206, 206);
-    color: rgb(71, 71, 71);
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    transition: all .3s ease-in;
+    background: rgb(0, 153, 255);
+    width: 100%;
 }
 
 .commituser {
@@ -158,13 +161,21 @@
     margin-bottom: 5px;
     align-self: center;
     justify-self: flex-end;
+    margin-right: 15px;
 }
 
 .CommitUserName {
     align-self: center;
     font-size: 20px;
-    color: rgb(71, 71, 71);
+    color: aliceblue;
     margin-left: 15px;
+}
+
+.TextCommit {
+    width: 100%;
+    margin-left: 15px;
+    color: rgb(255, 255, 255);
+    margin-right: 15px;
 }
 
 .UserInfoChat {
