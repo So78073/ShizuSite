@@ -1,17 +1,3 @@
-.Commit {
-    width: 100%;
-    height: 20px;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    font-size: 14px;
-    resize: none;
-    padding: 10px;
-    color: rgb(58, 58, 58);
-    margin-left: 5px;
-    margin-right: 15px;
-}
-
 .InviteCommit {
     width: 100px;
     height: 40px;
@@ -26,24 +12,23 @@
 
 .posts {
     margin-top: 10px;
-    width: 90%;
+    width: 96%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 10px;
 }
 
 .readyPost {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    border-radius: 19px;
+    height: 90%;
+    border-radius: 15px;
     background: transparent;
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
-    background: rgba(255, 255, 255, 0);
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
 .userInfoPost {
@@ -52,18 +37,7 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
-}
-
-.userInfoPost p {
-    height: 100%;
-    width: 95%;
-    background: aliceblue;
-    white-space: pre-line;
-    border-radius: 8px;
-    color: rgb(92, 92, 92);
-    padding: 15px;
-    margin-right: 15px;
-    margin-left: 15px;
+    overflow: hidden;
 }
 
 .userInfoPost img {
@@ -75,14 +49,12 @@
     width: 100%;
     display: flex;
     align-items: center;
-    /* Alinhe verticalmente o conteúdo no centro */
 }
 
 .ReactPost {
     height: 100%;
     width: 100%;
     display: flex;
-    margin-right: 20px;
     justify-content: end;
     margin-bottom: 10px;
 }
@@ -102,13 +74,14 @@
 }
 
 .ChatZoneOnOff {
-    width: 98%;
     height: 40px;
+    width: 100%;
     border-radius: 5px;
     border: none;
     color: aliceblue;
-    font-size: 15px;
     background: rgb(0, 153, 255);
+    align-self: center;
+    font-size: 15px;
 }
 
 .IMGuserChat {
@@ -117,7 +90,7 @@
 }
 
 .btCommitChat {
-    width: 98%;
+    width: 100%;
     height: 100%;
     margin-top: 10px;
     border-radius: 5px;
@@ -131,7 +104,7 @@
 .commits {
     display: flex;
     flex-direction: column;
-    width: 98%;
+    width: 100%;
     height: 100%;
     background: none;
     margin-top: 10px;
@@ -140,7 +113,7 @@
 }
 
 .card {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -152,6 +125,8 @@
     transition: all .3s ease-in;
     background: rgb(0, 153, 255);
     width: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .commituser {
@@ -189,6 +164,19 @@
     width: 100%;
 }
 
+.Commit {
+    width: 100%;
+    height: 20px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    resize: none;
+    padding: 10px;
+    color: rgb(58, 58, 58);
+    margin-right: 15px;
+}
+
 .committext {
     display: flex;
     min-width: 100%;
@@ -201,8 +189,24 @@
 .CanvasChat {
     background: rgb(0, 153, 255);
     height: 10px;
-    width: 50%;
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 5px;
     align-self: center;
     border-radius: 20px;
+}
+
+.TextPosts {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.TextPosts p {
+    width: 100%;
+    color: rgb(94, 94, 94);
+    padding: 15px;
+    background: aliceblue;
+    white-space: pre-line;
+    border-radius: 5px;
+    min-height: 15px;
 }

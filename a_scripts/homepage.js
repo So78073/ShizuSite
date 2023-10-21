@@ -30,10 +30,7 @@ function RenderPage() {
                 const Comp = Object.keys(Cpubli['Compar']).length;
 
                 const idpost = publications[round];
-
-                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f)
-
-
+                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f);
 
             }
 
@@ -55,8 +52,12 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <div class="userInfoPost">
             <img src="/IMG/USER_DEFAUT.png">
             <h2 class="h2">${nome}</h2>
-            <p stylr="border-radiu: 5px;">${texto}</p>
         </div>
+        
+        <div class="TextPosts">
+            <p>${texto}</p>
+        </div>
+
 
         <div class="ReactPost">
             <div class="ChatArea">
@@ -89,7 +90,10 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
         <div class="Plike" id="pl.${idpost}"></div>
 
         <div class="ChatZone">
-            <button class="ChatZoneOnOff">Comentários</button>
+            
+            <button class="ChatZoneOnOff">Comentários 0</button>
+            
+            
             <div class="commits">
 
                 <div class="card">
