@@ -98,7 +98,6 @@
     color: rgb(41, 41, 41);
     display: flex;
     align-items: center;
-    background-color: rgb(255, 153, 0);
 }
 
 .commits {
@@ -173,8 +172,9 @@
     font-size: 14px;
     resize: none;
     padding: 10px;
-    color: rgb(58, 58, 58);
+    color: rgb(94, 94, 94);
     margin-right: 15px;
+    font-size: 15px;
 }
 
 .committext {

@@ -61,7 +61,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
         <div class="ReactPost">
             <div class="ChatArea">
-                <textarea id="ta-${idpost}" cols="30" rows="10" class="Commit"></textarea>
+                <textarea id="ta-${idpost}" cols="30" rows="10" class="Commit">Comentar</textarea>
                 <button class="InviteCommit" data-key="ta-${idpost}" id="CT">Enviar</button>
             </div>
 
