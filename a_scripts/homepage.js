@@ -31,7 +31,14 @@ function RenderPage() {
 
                 const idpost = publications[round];
                 CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f);
+                if (Object.keys(Cpubli['commits']).length > 0) {
+                    const commit = Cpubli['commits']
+                    for (let i in commit) {
+                        i = commit[i]
+                        commitRender(friend['nome'], idpost, i['likes'], i['Dlikes'], i['commit'])
+                    }
 
+                }
             }
 
 
@@ -41,6 +48,37 @@ function RenderPage() {
         });
 
 }
+
+function commitRender(nome, idpost, likes, Dlikes, txt) {
+    const pai = document.getElementById(`cm-${idpost}`);
+
+    const htmlString = `
+    <div class="card">
+                    <div class="commituser">
+                        <div class="UserInfoChat">
+                            <img src="/IMG/USER_DEFAUT.png" style="margin-left: 15px; margin-top: 3px;">
+                            <label class="CommitUserName">${nome}</label>
+                        </div>
+                    </div>
+                    <div class="committext">
+                        <p class="TextCommit">${txt}</p>
+                        <div class="reactions">
+                            <div class="reactions">
+                                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                                <label>0</label>
+                            </div>
+                            <div class="reactions">
+                                <button class="bt_react"><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
+                                <label>0</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    `;
+
+    pai.insertAdjacentHTML('beforeend', htmlString);
+}
+
 
 function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
@@ -61,8 +99,8 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
         <div class="ReactPost">
             <div class="ChatArea">
-                <textarea id="ta-${idpost}" cols="30" rows="10" class="Commit">Comentar</textarea>
-                <button class="InviteCommit" data-key="ta-${idpost}" id="CT">Enviar</button>
+                <textarea id="ta-${idpost}" cols="30" rows="10" class="Commit" placeholder="Comentar"></textarea>
+                <button class="InviteCommit" onclick="Commit(this)" data-key="${idpost}">Enviar</button>
             </div>
 
             <div class="reactions">
@@ -91,35 +129,17 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
         <div class="ChatZone">
             
-            <button class="ChatZoneOnOff">Comentários 0</button>
+            <button class="ChatZoneOnOff" onclick="test()">Comentários 0</button>
             
             
-            <div class="commits">
+            <div class="commits" id="cm-${idpost}">
 
-                <div class="card">
-                    <div class="commituser">
-                        <div class="UserInfoChat">
-                            <img src="/IMG/USER_DEFAUT.png" style="margin-left: 15px; margin-top: 3px;">
-                            <label class="CommitUserName">Nome Do Usuário</label>
-                        </div>
-                    </div>
-                    <div class="committext">
-                        <p class="TextCommit">asjdlaksjdakljdlakjsdkljasdjld</p>
-                        <div class="reactions">
-                            <div class="reactions">
-                                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                                <label>0</label>
-                            </div>
-                            <div class="reactions">
-                                <button class="bt_react"><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
-                                <label>0</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <canvas class="CanvasChat"></canvas>
+            
             </div>
+        </div>
+                
+            </div>
+            <canvas class="CanvasChat"></canvas>
         </div>
 
         <div class="likeChat"></div>
@@ -129,8 +149,8 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 </div>
 
     `;
+    newPosts.insertAdjacentHTML('beforeend', htmlString)
 
-    newPosts.insertAdjacentHTML('beforeend', htmlString);
 }
 
 /*react post */

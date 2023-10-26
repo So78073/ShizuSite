@@ -40,3 +40,34 @@ function decodeKey(key) {
     // Retorna um valor padrão se a extração falhar
     return null;
 }
+
+function Commit(bt) {
+    const Cuser = sessionStorage.getItem('user');
+    const idkey = bt.getAttribute('data-key');
+    const commit = document.getElementById(`ta-${idPost}`).value;
+
+    const struc = {
+        Cuser: Cuser,
+        idPost: idkey,
+        coment: commit
+    }
+
+    console.table(struc);
+
+    fetch('http://localhost:3000/commit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(struc)
+        })
+        .then(response => response.json())
+        .then(data => {})
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+}
+
+function test() {
+    console.log('apertou');
+}
