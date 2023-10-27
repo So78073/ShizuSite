@@ -32,10 +32,13 @@ function RenderPage() {
                 const idpost = publications[round];
                 CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f);
                 if (Object.keys(Cpubli['commits']).length > 0) {
-                    const commit = Cpubli['commits']
-                    for (let i in commit) {
-                        i = commit[i]
-                        commitRender(friend['nome'], idpost, i['likes'], i['Dlikes'], i['commit'])
+                    const AllCommits = Cpubli['commits']
+                    for (let i in AllCommits) {
+                        const userBASE = decodeKey(i)
+                        const commit = AllCommits[i]
+                        commitRender(commit['nome'], idpost, commit['likes'], commit['Dlikes'], commit['commit'], i)
+                        console.log(i);
+
                     }
 
                 }
@@ -49,7 +52,7 @@ function RenderPage() {
 
 }
 
-function commitRender(nome, idpost, likes, Dlikes, txt) {
+function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
     const pai = document.getElementById(`cm-${idpost}`);
 
     const htmlString = `
@@ -64,12 +67,12 @@ function commitRender(nome, idpost, likes, Dlikes, txt) {
                         <p class="TextCommit">${txt}</p>
                         <div class="reactions">
                             <div class="reactions">
-                                <button class="bt_react"><img src="/IMG/reacts/like.png" class="img_icon"></button>
-                                <label>0</label>
+                                <button class="bt_react" data-key="${idpost}" data-keyMit="${idCommit}" onclick="LikeCommit(this, "likes")"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                                <label>${likes}</label>
                             </div>
                             <div class="reactions">
-                                <button class="bt_react"><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
-                                <label>0</label>
+                                <button class="bt_react" data-key="${idpost} data-keyMit="${idCommit}" onclick="LikeCommit(this, "Dlikes")><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
+                                <label>${Dlikes}</label>
                             </div>
                         </div>
                     </div>
@@ -159,7 +162,9 @@ function reactpostAPI(Cuser, Fuser, Type, IDpost) {
         Cuser: Cuser,
         Fuser: Fuser,
         IDpost: IDpost,
-        Type: Type
+        IDcommit: null,
+        Type: Type,
+        Func: "POST"
     }
 
 

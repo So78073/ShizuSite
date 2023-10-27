@@ -81,32 +81,37 @@ router.get('/friends', (req, res) => {
 });
 router.post('/friends', (req, res) => {
     const data = readFile();
-    const { Cuser, Fuser, IDpost, Type } = req.body;
+    const { Cuser, Fuser, IDpost, IDcommit, Type, Func } = req.body;
 
 
-    if (data[1][Fuser]["publications"][IDpost][Type].includes(Cuser)) {
+    if (Func == "POST") {
+        if (data[1][Fuser]["publications"][IDpost][Type].includes(Cuser)) {
 
-        const index = data[1][Fuser]["publications"][IDpost][Type].indexOf(Cuser)
-        data[1][Fuser]["publications"][IDpost][Type].splice(index, 1);
+            const index = data[1][Fuser]["publications"][IDpost][Type].indexOf(Cuser)
+            data[1][Fuser]["publications"][IDpost][Type].splice(index, 1);
 
-    } else {
-        if (Type == "Compar") {
-            if (data[1][Fuser]["publications"][IDpost]["Compar"].includes(Cuser)) {
-                const index = data[1][Fuser]["publications"][IDpost]["Compar"].indexOf(Cuser)
-                data[1][Fuser]["publications"][IDpost]["Compar"].splice(index, 1);
-            } else {
-                data[1][Fuser]["publications"][IDpost]["Compar"].push(Cuser)
-            }
         } else {
-            const index1 = data[1][Fuser]["publications"][IDpost]["likes"].indexOf(Cuser)
-            const index2 = data[1][Fuser]["publications"][IDpost]["Dlikes"].indexOf(Cuser)
+            if (Type == "Compar") {
+                if (data[1][Fuser]["publications"][IDpost]["Compar"].includes(Cuser)) {
+                    const index = data[1][Fuser]["publications"][IDpost]["Compar"].indexOf(Cuser)
+                    data[1][Fuser]["publications"][IDpost]["Compar"].splice(index, 1);
+                } else {
+                    data[1][Fuser]["publications"][IDpost]["Compar"].push(Cuser)
+                }
+            } else {
+                const index1 = data[1][Fuser]["publications"][IDpost]["likes"].indexOf(Cuser)
+                const index2 = data[1][Fuser]["publications"][IDpost]["Dlikes"].indexOf(Cuser)
 
-            data[1][Fuser]["publications"][IDpost]["likes"].splice(index1, 1);
-            data[1][Fuser]["publications"][IDpost]["Dlikes"].splice(index2, 1);
+                data[1][Fuser]["publications"][IDpost]["likes"].splice(index1, 1);
+                data[1][Fuser]["publications"][IDpost]["Dlikes"].splice(index2, 1);
 
-            data[1][Fuser]["publications"][IDpost][Type].push(Cuser)
+                data[1][Fuser]["publications"][IDpost][Type].push(Cuser)
+            }
+
         }
-
+    }
+    if (Func == "COMMIT") {
+        const keys = decodeKey(IDcommit)
     }
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
 });
@@ -131,7 +136,7 @@ router.post('/commit', (req, res) => {
     const minuto = dataAtual.getMinutes();
     const idCommit = `${Cuser}-${ano}.${mes}.${hora}.${minuto}`
 
-    data[1][keys.a]["publications"][idkey]['commits'][idCommit] = { commit: commit, likes: [], Dlikes: [] }
+    data[1][keys.a]["publications"][idkey]['commits'][idCommit] = { commit: commit, likes: [], Dlikes: [], nome: data[1][Cuser]["nome"] }
 
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
 });
