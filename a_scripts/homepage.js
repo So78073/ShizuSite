@@ -36,8 +36,7 @@ function RenderPage() {
                     for (let i in AllCommits) {
                         const userBASE = decodeKey(i)
                         const commit = AllCommits[i]
-                        commitRender(commit['nome'], idpost, commit['likes'], commit['Dlikes'], commit['commit'], i)
-                        console.log(i);
+                        commitRender(commit['nome'], idpost, commit['likes'].length, commit['Dlikes'].length, commit['commit'], i)
 
                     }
 
@@ -67,11 +66,13 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                         <p class="TextCommit">${txt}</p>
                         <div class="reactions">
                             <div class="reactions">
-                                <button class="bt_react" data-key="${idpost}" data-keyMit="${idCommit}" onclick="LikeCommit(this, "likes")"><img src="/IMG/reacts/like.png" class="img_icon"></button>
+                                <button class="bt_react" data-key="${idpost}/${idCommit}" onclick="LikeCommit(this, 'likes')"> 
+                                <img src="/IMG/reacts/like.png" class="img_icon"></button>
                                 <label>${likes}</label>
                             </div>
                             <div class="reactions">
-                                <button class="bt_react" data-key="${idpost} data-keyMit="${idCommit}" onclick="LikeCommit(this, "Dlikes")><img src="/IMG/reacts/Delike.png" class="img_icon"></button>
+                                <button class="bt_react" data-key="${idpost}" onclick="LikeCommit(this, 'Dlikes')">
+                                <img src="/IMG/reacts/Delike.png" class="img_icon"></button>
                                 <label>${Dlikes}</label>
                             </div>
                         </div>
@@ -109,7 +110,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
             <div class="reactions">
                 <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}">
                     <img src="/IMG/reacts/like.png" class="img_icon">
-                    </button>
+                </button>
                 <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
             </div>
 
