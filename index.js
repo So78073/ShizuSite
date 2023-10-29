@@ -111,37 +111,45 @@ router.post('/friends', (req, res) => {
             }
         }
         if (Func == "COMMIT") {
-            const keys = decodeKey(IDcommit)
 
-            const onLikes = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].includes(Cuser)
-            const onDlikes = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].includes(Cuser)
+            const onlikes = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].includes(Cuser)
+            const ondlikes = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].includes(Cuser)
 
-            if (onLikes == true && onDlikes == false) {
-                if (Type == "likes") {
-                    const index1 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].indexOf(Cuser)
-                    data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].splice(index1, 1);
-                } else {
-                    const index1 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].indexOf(Cuser)
-                    data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].splice(index1, 1);
-                    data[1][Fuser]["publications"][IDpost]['commits'][IDcommit][Type].push(Cuser)
+            if (ondlikes == true || onlikes == true) {
+                if (Type == 'likes') {
+                    if (onlikes == true) {
+                        const index1 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].indexOf(Cuser)
+                        data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].splice(index1, )
 
+                    } else {
+                        const index2 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].indexOf(Cuser)
+                        data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].splice(index2, )
+
+                        data[1][Fuser]["publications"][IDpost]['commits'][IDcommit][Type].push(Cuser)
+
+                    }
                 }
-            }
-            if (onLikes == false && onDlikes == true) {
-                if (Type == "Dlikes") {
-                    const index1 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].indexOf(Cuser)
-                    data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].splice(index1, 1);
-                } else {
-                    const index1 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].indexOf(Cuser)
-                    data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].splice(index1, 1);
-                    data[1][Fuser]["publications"][IDpost]['commits'][IDcommit][Type].push(Cuser)
 
+                if (Type == 'Dlikes') {
+                    if (ondlikes == true) {
+                        const index1 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].indexOf(Cuser)
+                        data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['Dlikes'].splice(index1, )
+
+                    } else {
+                        const index2 = data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].indexOf(Cuser)
+                        data[1][Fuser]["publications"][IDpost]['commits'][IDcommit]['likes'].splice(index2, )
+
+                        data[1][Fuser]["publications"][IDpost]['commits'][IDcommit][Type].push(Cuser)
+
+                    }
                 }
+
+
             } else {
                 data[1][Fuser]["publications"][IDpost]['commits'][IDcommit][Type].push(Cuser)
             }
-        }
 
+        }
         fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
         res.send(data[1][Fuser]["publications"][IDpost]['commits'][IDcommit])
     }
