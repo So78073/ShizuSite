@@ -65,12 +65,11 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                     <div class="committext">
                         <p class="TextCommit">${txt}</p>
                         <div class="reactions">
-                            <div class="reactions">
                                 <button class="bt_react" data-key="${idpost}/${idCommit}" onclick="LikeCommit(this, 'likes')"> 
                                 <img src="/IMG/reacts/like.png" class="img_icon"></button>
                                 <label>${likes}</label>
                             </div>
-                            <div class="reactions">
+
                                 <button class="bt_react" data-key="${idpost}" onclick="LikeCommit(this, 'Dlikes')">
                                 <img src="/IMG/reacts/Delike.png" class="img_icon"></button>
                                 <label>${Dlikes}</label>
