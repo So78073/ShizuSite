@@ -60,19 +60,28 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                         <div class="UserInfoChat">
                             <img src="/IMG/USER_DEFAUT.png" style="margin-left: 15px; margin-top: 3px;">
                             <label class="CommitUserName">${nome}</label>
+                            <div class="div_config_commit">
+                                <button class="bt_opc_commit" data-key="popPost/${idpost}" onclick="test(this)"> 
+                                <img src="/IMG/config_postMit.png" class="img_icon"></button>
+                            </div>
+                            <div class="div_option_commit" id="popPost/${idpost}">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="committext">
                         <p class="TextCommit">${txt}</p>
-                        <div class="reactions">
-                                <button class="bt_react" data-key="${idpost}/${idCommit}" onclick="LikeCommit(this, 'likes')"> 
-                                <img src="/IMG/reacts/like.png" class="img_icon"></button>
-                                <label>${likes}</label>
-                            </div>
-
-                                <button class="bt_react" data-key="${idpost}" onclick="LikeCommit(this, 'Dlikes')">
-                                <img src="/IMG/reacts/Delike.png" class="img_icon"></button>
-                                <label>${Dlikes}</label>
+                        <div class="reactions1">
+                            <div class="reactions">
+                                    <button class="bt_react" data-key="${idpost}/${idCommit}" onclick="LikeCommit(this, 'likes')"> 
+                                    <img src="/IMG/reacts/like.png" class="img_icon"></button>
+                                    <label>${likes}</label>
+                                </div>
+                                <div class="reactions">
+                                    <button class="bt_react" data-key="${idpost}" onclick="LikeCommit(this, 'Dlikes')">
+                                    <img src="/IMG/reacts/Delike.png" class="img_icon"></button>
+                                    <label>${Dlikes}</label>
+                                </div>
                             </div>
                         </div>
                     </div>

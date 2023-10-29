@@ -109,3 +109,17 @@ function separateTwoKeys(keys) {
     // Retorna um valor padrão se a extração falhar
     return null;
 }
+
+
+function test(bt) {
+    const IDpost = bt.getAttribute('data-key');
+    const popup = document.getElementById(IDpost);
+
+    if (popup.style.display == 'flex') {
+        popup.style.display = 'none'
+    } else {
+        popup.style.display = 'flex'
+    }
+
+
+}

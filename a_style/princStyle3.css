@@ -133,19 +133,29 @@
     width: 100%;
 }
 
+.reactions1 {
+    display: flex;
+    width: 150px;
+    align-self: flex-end;
+    margin-bottom: 15px;
+}
+
 .reactions {
     margin-top: 5px;
     margin-bottom: 5px;
-    align-self: center;
-    justify-self: flex-end;
-    margin-right: 20px;
+    align-self: flex-end;
+    justify-self: center;
+    margin-right: 10px;
 }
 
 .CommitUserName {
     align-self: center;
     font-size: 20px;
     color: aliceblue;
-    margin-left: 15px;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    text-indent: 15px;
 }
 
 .TextCommit {
@@ -183,7 +193,6 @@
     min-width: 100%;
     min-height: 60px;
     align-items: center;
-    padding-left: 15px;
     font-size: 16px;
 }
 
@@ -210,4 +219,24 @@
     white-space: pre-line;
     border-radius: 5px;
     min-height: 15px;
+}
+
+.div_config_commit {
+    display: flex;
+    width: 150px;
+    justify-content: center;
+}
+
+.bt_opc_commit {
+    position: absolute;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+    margin-right: 10px;
 }
