@@ -1,5 +1,43 @@
 .div_option_commit {
     display: none;
+    width: 500px;
     background: white;
-    width: 100%;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+@keyframes abrir {
+    0% {
+        width: 0px;
+        opacity: 0%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        width: 500px;
+        opacity: 100%;
+    }
+}
+
+@keyframes fechar {
+    0% {
+        width: 500px;
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        width: 0px;
+        opacity: 0%;
+    }
+}
+
+.buttonInfoCommit {
+    height: 30px;
+    width: 30px;
+    align-self: center;
+    border-radius: 20px;
+    margin: 10px;
 }

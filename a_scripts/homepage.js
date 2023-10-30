@@ -65,6 +65,12 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                                 <img src="/IMG/config_postMit.png" class="img_icon"></button>
                             </div>
                             <div class="div_option_commit" id="popPost/${idpost}">
+                                <button class="buttonInfoCommit"></button>
+                                <button class="buttonInfoCommit"></button>
+                                <button class="buttonInfoCommit"></button>
+                                <button class="buttonInfoCommit"></button>
+                                
+                                
                                 
                             </div>
                         </div>
