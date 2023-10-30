@@ -1,4 +1,5 @@
 console.clear()
+const { Decipher } = require("crypto");
 const express = require("express");
 const fs = require("fs");
 const { url } = require("inspector");
@@ -79,6 +80,7 @@ router.get('/friends', (req, res) => {
     }
     res.send(achados);
 });
+
 router.post('/friends', (req, res) => {
         const data = readFile();
         const { Cuser, Fuser, IDpost, IDcommit, Type, Func } = req.body;
@@ -180,6 +182,21 @@ router.post('/commit', (req, res) => {
 
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
 });
+
+router.delete('/commit/:id1/:id2', (req, res) => {
+    // Ler os dados
+    const data = readFile();
+
+    const id1 = req.params.id1;
+    const id2 = req.params.id2;
+
+    const KeysUserPost = decodeKey(id1);
+    const publication = data[1][KeysUserPost.a]["publications"][id1];
+
+    delete data[1][KeysUserPost.a]['publications'][id1]['commits'][id2]
+    fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
+});
+
 
 router.post('/follow', (req, res) => {
     const content = readFile();

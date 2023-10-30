@@ -239,4 +239,7 @@
     justify-self: center;
     align-self: center;
     margin-right: 10px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
 }

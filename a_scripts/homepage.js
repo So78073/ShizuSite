@@ -65,13 +65,18 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                                 <img src="/IMG/config_postMit.png" class="img_icon"></button>
                             </div>
                             <div class="div_option_commit" id="popPost/${idpost}">
+                                <button class="buttonInfoCommit" onclick="Popupfunction('abrir')">Excluir</button>
                                 <button class="buttonInfoCommit"></button>
                                 <button class="buttonInfoCommit"></button>
                                 <button class="buttonInfoCommit"></button>
-                                <button class="buttonInfoCommit"></button>
-                                
-                                
-                                
+                            </div>
+                            <div class="confirm" id="confirm">
+                                <div class="conteudo">
+                                    <!-- Conteúdo da sua popup aqui -->
+                                    <p>Este é o conteúdo da popup.</p>
+                                    <button onclick="DeleteCommitFunction(this)" data-key="${idpost}/${idCommit}">Excluir</button>
+                                    <button onclick="Popupfunction('cancelar')">Concelar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,7 +89,7 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                                     <label>${likes}</label>
                                 </div>
                                 <div class="reactions">
-                                    <button class="bt_react" data-key="${idpost}" onclick="LikeCommit(this, 'Dlikes')">
+                                    <button class="bt_react" data-key="${idpost}/${idCommit}" onclick="LikeCommit(this, 'Dlikes')">
                                     <img src="/IMG/reacts/Delike.png" class="img_icon"></button>
                                     <label>${Dlikes}</label>
                                 </div>

@@ -66,8 +66,6 @@ function LikeCommit(bt, Type) {
     const data = bt.getAttribute('data-key')
     const key = separateTwoKeys(data)
 
-
-
     const obj = {
         Cuser: Cuser,
         Fuser: decodeKey(key.a).a,
@@ -76,12 +74,85 @@ function LikeCommit(bt, Type) {
         Type: Type,
         Func: "COMMIT",
     }
-    console.log(separateTwoKeys(data));
-    console.table(obj);
+    fetch('http://localhost:3000/friends', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        })
+        .then(response => response.json())
+        .then(data => {})
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 }
 
 
 
+
+
+
+
+
+function test(bt) {
+    const IDpost = bt.getAttribute('data-key');
+    const popup = document.getElementById(IDpost);
+
+    if (popup.style.display === 'flex') {
+        popup.style.animation = "fechar 1s ease-in-out";
+
+        // Adicione um ouvinte de evento para detectar quando a animação "abrir" termina
+        popup.addEventListener("animationend", () => {
+            popup.style.display = 'none';
+        }, { once: true });
+    } else {
+        popup.style.display = 'flex';
+        popup.style.animation = "abrir 1s ease-in-out";
+
+        // Adicione um ouvinte de evento para detectar quando a animação "fechar" termina
+        popup.addEventListener("animationend", () => {
+            popup.style.animation = "";
+        }, { once: true });
+    }
+}
+
+function Popupfunction(Type) {
+    const elem = document.getElementById('confirm');
+    if (Type == "abrir") {
+        elem.style.display = 'flex'
+    }
+    if (Type == "cancelar") {
+        elem.style.display = 'none'
+    }
+
+}
+
+function DeleteCommitFunction(bt) {
+    const ids = bt.getAttribute('data-key');
+    const keys = separateTwoKeys(ids)
+    console.table(keys);
+
+    const id1 = keys.a
+    const id2 = keys.b
+
+    fetch(`/api/recursos/${id1}/${id2}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.status === 204) {
+                console.log('Recursos excluídos com sucesso');
+            } else {
+                console.error('Falha ao excluir os recursos');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao excluir os recursos:', error);
+        });
+}
+
+
+/* ============================================================================ */
 function decodeKey(key) {
     const partes = key.split('-');
     if (partes.length === 2) {
@@ -108,27 +179,4 @@ function separateTwoKeys(keys) {
     }
     // Retorna um valor padrão se a extração falhar
     return null;
-}
-
-
-function test(bt) {
-    const IDpost = bt.getAttribute('data-key');
-    const popup = document.getElementById(IDpost);
-
-    if (popup.style.display === 'flex') {
-        popup.style.animation = "fechar 1s ease-in-out";
-
-        // Adicione um ouvinte de evento para detectar quando a animação "abrir" termina
-        popup.addEventListener("animationend", () => {
-            popup.style.display = 'none';
-        }, { once: true });
-    } else {
-        popup.style.display = 'flex';
-        popup.style.animation = "abrir 1s ease-in-out";
-
-        // Adicione um ouvinte de evento para detectar quando a animação "fechar" termina
-        popup.addEventListener("animationend", () => {
-            popup.style.animation = "";
-        }, { once: true });
-    }
 }
