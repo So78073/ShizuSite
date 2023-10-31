@@ -65,17 +65,17 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                                 <img src="/IMG/config_postMit.png" class="img_icon"></button>
                             </div>
                             <div class="div_option_commit" id="popPost/${idpost}">
-                                <button class="buttonInfoCommit" onclick="Popupfunction('abrir')">Excluir</button>
+                                <button class="buttonInfoCommit" data-key="co/${idCommit}" onclick="popupFunction(this)">Excluir</button>
                                 <button class="buttonInfoCommit"></button>
                                 <button class="buttonInfoCommit"></button>
                                 <button class="buttonInfoCommit"></button>
                             </div>
-                            <div class="confirm" id="confirm">
+                            <div class="confirm" id="co/${idCommit}">
                                 <div class="conteudo">
                                     <!-- Conteúdo da sua popup aqui -->
                                     <p>Este é o conteúdo da popup.</p>
                                     <button onclick="DeleteCommitFunction(this)" data-key="${idpost}/${idCommit}">Excluir</button>
-                                    <button onclick="Popupfunction('cancelar')">Concelar</button>
+                                    <button data-key="co/${idCommit}" onclick="popupFunction(this)">Cancelar</button>
                                 </div>
                             </div>
                         </div>

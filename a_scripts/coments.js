@@ -117,13 +117,13 @@ function test(bt) {
     }
 }
 
-function Popupfunction(Type) {
-    const elem = document.getElementById('confirm');
-    if (Type == "abrir") {
-        elem.style.display = 'flex'
-    }
-    if (Type == "cancelar") {
-        elem.style.display = 'none'
+function popupFunction(bt, Type) {
+    const elem = document.getElementById(bt.getAttribute('data-key'))
+
+    if (elem.style.display == 'none') {
+        elem.style.display = 'flex';
+    } else {
+        elem.style.display = 'none';
     }
 
 }
