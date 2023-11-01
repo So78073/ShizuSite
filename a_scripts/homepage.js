@@ -28,16 +28,17 @@ function RenderPage() {
                 const like = Object.keys(Cpubli['likes']).length;
                 const Dike = Object.keys(Cpubli['Dlikes']).length;
                 const Comp = Object.keys(Cpubli['Compar']).length;
+                const Ncomm = Object.keys(Cpubli['commits']).length;
 
                 const idpost = publications[round];
-                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f);
+                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f, Ncomm);
                 if (Object.keys(Cpubli['commits']).length > 0) {
                     const AllCommits = Cpubli['commits']
                     for (let i in AllCommits) {
                         const userBASE = decodeKey(i)
                         const commit = AllCommits[i]
                         commitRender(commit['nome'], idpost, commit['likes'].length, commit['Dlikes'].length, commit['commit'], i)
-
+                        console.log(Ncomm);
                     }
 
                 }
@@ -61,7 +62,7 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                             <img src="/IMG/USER_DEFAUT.png" style="margin-left: 15px; margin-top: 3px;">
                             <label class="CommitUserName">${nome}</label>
                             <div class="div_config_commit">
-                                <button class="bt_opc_commit" data-key="popPost/${idpost}" onclick="test(this)"> 
+                                <button class="bt_opc_commit" data-key="popPost/${idpost}" onclick="InfoCommit(this)"> 
                                 <img src="/IMG/config_postMit.png" class="img_icon"></button>
                             </div>
                             <div class="div_option_commit" id="popPost/${idpost}">
@@ -74,7 +75,7 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                                 <div class="conteudo">
                                     <!-- Conteúdo da sua popup aqui -->
                                     <p>Este é o conteúdo da popup.</p>
-                                    <button onclick="DeleteCommitFunction(this)" data-key="${idpost}/${idCommit}">Excluir</button>
+                                    <button data-key="${idpost}/${idCommit}" onclick="DeleteCommitFunction(this)" >Excluir</button>
                                     <button data-key="co/${idCommit}" onclick="popupFunction(this)">Cancelar</button>
                                 </div>
                             </div>
@@ -103,7 +104,7 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
 }
 
 
-function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
+function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, Ncoments) {
 
     const newPosts = document.getElementById('newPosts');
 
@@ -152,7 +153,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF) {
 
         <div class="ChatZone">
             
-            <button class="ChatZoneOnOff" onclick="test()">Comentários 0</button>
+            <button class="ChatZoneOnOff" data-key="cm-${idpost}" onclick="openCommitArea(this)">Comentários ${Ncoments}</button>
             
             
             <div class="commits" id="cm-${idpost}">

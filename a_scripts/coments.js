@@ -30,7 +30,6 @@ function commitkk() {
 }
 
 
-
 function Commit(bt) {
     const Cuser = sessionStorage.getItem('user');
     const idPost = bt.getAttribute('data-key');
@@ -61,7 +60,6 @@ function Commit(bt) {
 }
 
 
-
 function LikeCommit(bt, Type) {
     const data = bt.getAttribute('data-key')
     const key = separateTwoKeys(data)
@@ -90,65 +88,82 @@ function LikeCommit(bt, Type) {
 
 
 
-
-
-
-
-
-function test(bt) {
+function InfoCommit(bt) {
     const IDpost = bt.getAttribute('data-key');
     const popup = document.getElementById(IDpost);
+    const computedStyle = window.getComputedStyle(popup);
 
-    if (popup.style.display === 'flex') {
+    if (computedStyle.display === 'flex') {
         popup.style.animation = "fechar 1s ease-in-out";
 
-        // Adicione um ouvinte de evento para detectar quando a animação "abrir" termina
+        // Adicione um ouvinte de evento para detectar quando a animação "fechar" termina
         popup.addEventListener("animationend", () => {
             popup.style.display = 'none';
+            popup.style.animation = '';
         }, { once: true });
     } else {
         popup.style.display = 'flex';
         popup.style.animation = "abrir 1s ease-in-out";
 
-        // Adicione um ouvinte de evento para detectar quando a animação "fechar" termina
+        // Adicione um ouvinte de evento para detectar quando a animação "abrir" termina
         popup.addEventListener("animationend", () => {
-            popup.style.animation = "";
+            popup.style.animation = '';
         }, { once: true });
     }
 }
 
-function popupFunction(bt, Type) {
-    const elem = document.getElementById(bt.getAttribute('data-key'))
 
-    if (elem.style.display == 'none') {
+function popupFunction(bt) {
+    const key = bt.getAttribute('data-key');
+    const elem = document.getElementById(key);
+
+    if (window.getComputedStyle(elem).display === 'none') {
         elem.style.display = 'flex';
     } else {
         elem.style.display = 'none';
     }
-
+    console.log('aperto');
 }
 
 function DeleteCommitFunction(bt) {
+    // Obtém os IDs dos recursos a serem excluídos do atributo 'data-key' do botão
     const ids = bt.getAttribute('data-key');
-    const keys = separateTwoKeys(ids)
+    const keys = separateTwoKeys(ids);
+
+    // Exibe as chaves separadas no console para fins de depuração
     console.table(keys);
+    const obj = {
+        id1: keys.a,
+        id2: keys.b,
+        Type: "commit"
+    }
 
-    const id1 = keys.a
-    const id2 = keys.b
 
-    fetch(`/api/recursos/${id1}/${id2}`, {
-            method: 'DELETE',
+    // Envia uma solicitação DELETE para a API para excluir os recursos
+    fetch('http://localhost:3000/delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
         })
-        .then(response => {
-            if (response.status === 204) {
-                console.log('Recursos excluídos com sucesso');
-            } else {
-                console.error('Falha ao excluir os recursos');
-            }
-        })
+        .then(response => response.json())
+        .then(data => {})
         .catch(error => {
-            console.error('Erro ao excluir os recursos:', error);
+            console.error('Erro:', error);
         });
+}
+
+function openCommitArea(bt) {
+    const id = bt.getAttribute('data-key');
+    const elem = document.getElementById(id);
+
+    if (window.getComputedStyle(elem).display == 'none') {
+        elem.style.display = 'flex'
+    } else {
+        elem.style.display = 'none'
+    }
+
 }
 
 
