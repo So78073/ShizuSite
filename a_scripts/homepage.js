@@ -11,38 +11,15 @@ function RenderPage() {
         })
         .then(response => response.json())
         .then(data => {
+            const dados = data[1][currentUser]
+            console.log(dados);
 
-            let Follows = data[1][currentUser]['seguindo'];
-            const followConfig = document.getElementById('FollowBtton');
-            Follows.push(currentUser);
+            for (let i in dados["seguindo"]) {
 
-
-            let round = 0
-            for (let f in Follows) {
-                f = Follows[f];
-                const friend = data[1][f];
-                const publications = Object.keys(friend['publications']);
-                const publi = friend["publications"];
-                const Cpubli = publi[publications[round]];
-
-                const like = Object.keys(Cpubli['likes']).length;
-                const Dike = Object.keys(Cpubli['Dlikes']).length;
-                const Comp = Object.keys(Cpubli['Compar']).length;
-                const Ncomm = Object.keys(Cpubli['commits']).length;
-
-                const idpost = publications[round];
-                CreatPostFriendPage(friend['nome'], Cpubli['txt'], like, Dike, Comp, idpost, f, Ncomm);
-                if (Object.keys(Cpubli['commits']).length > 0) {
-                    const AllCommits = Cpubli['commits']
-                    for (let i in AllCommits) {
-                        const userBASE = decodeKey(i)
-                        const commit = AllCommits[i]
-                        commitRender(commit['nome'], idpost, commit['likes'].length, commit['Dlikes'].length, commit['commit'], i)
-                        console.log(Ncomm);
-                    }
-
-                }
+                console.log(i);
             }
+
+
 
 
         })
