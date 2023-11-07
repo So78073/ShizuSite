@@ -19,10 +19,11 @@ function RenderPage() {
             let publis = [];
             for (let i in seguindo) {
                 let cache = 0;
+                const friend = data[1][seguindo[i]]
                 while (true) {
                     const a = Object.keys(dt[seguindo[i]]['publications'])[cache];
                     if (a && cache < 5) {
-                        publis.push(dt[seguindo[i]]['publications'][a])
+                        publis.push([dt[seguindo[i]]['publications'][a], a])
                         cache += 1;
                     } else {
                         break
@@ -30,7 +31,30 @@ function RenderPage() {
                 }
             }
 
-            console.log(publis);
+            embaralharArray(publis)
+            for (let p in publis) {
+
+                const publi = publis[p][0]
+                const idpost = publis[p][1]
+                const Fuser = data[1][decodeKey(idpost).a]
+
+                const obj = {
+                    nome: Fuser['nome'],
+                    txt: publi['txt'],
+                    Nlike: publi['likes'].length,
+                    Ndeslike: publi['Dlikes'].length,
+                    Ncomp: publi['Compar'].length,
+                    idpost: idpost,
+                    idF: Fuser,
+                    Ncoments: Object.keys(publi['commits']).length
+                }
+                console.table(obj);
+
+            }
+
+
+            /*"1-2023.11.11.20": { "txt": "", "likes": [], "Dlikes": [], "Compar": [], "commits": {} }*/
+            /*CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, Ncoments)*/
 
 
         })
@@ -257,6 +281,13 @@ function ReactPostPage(idpost, nome, idF) {
 
     pai.insertAdjacentHTML('beforeend', htmlString);
 
+}
+
+function embaralharArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos i e j
+    }
 }
 
 
