@@ -1,4 +1,4 @@
-const currentUser = sessionStorage.getItem('user');
+const Cuser = sessionStorage.getItem('user');
 
 function RenderPage() {
 
@@ -11,16 +11,26 @@ function RenderPage() {
         })
         .then(response => response.json())
         .then(data => {
-            const dados = data[1][currentUser]
-            const seguindo = dados["seguindo"]
-            console.log(dados);
 
+            const dt = data[1]
+            const seguindo = dt[Cuser]['seguindo']
+
+
+            let publis = [];
             for (let i in seguindo) {
-
-                console.log(seguindo[i]);
+                let cache = 0;
+                while (true) {
+                    const a = Object.keys(dt[seguindo[i]]['publications'])[cache];
+                    if (a && cache < 5) {
+                        publis.push(dt[seguindo[i]]['publications'][a])
+                        cache += 1;
+                    } else {
+                        break
+                    }
+                }
             }
 
-
+            console.log(publis);
 
 
         })
@@ -106,21 +116,21 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
             </div>
 
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}">
+                <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'likes', '${idpost}')" id="like-${idpost}" data-pai="${idpost}">
                     <img src="/IMG/reacts/like.png" class="img_icon">
                 </button>
                 <label style="cursor: pointer;" onclick="ReactPress('likes', this)" data-pai="${idpost}">${Nlike}</label>
             </div>
 
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'Dlikes', '${idpost}')" id="Dlike-${idpost}" data-pai="${idpost}">
+                <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'Dlikes', '${idpost}')" id="Dlike-${idpost}" data-pai="${idpost}">
                     <img src="/IMG/reacts/delike.png" class="img_icon">
                 </button>
                 <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ndeslike}</label>
             </div>
 
             <div class="reactions">
-                <button class="bt_react" onclick="reactpostAPI('${currentUser}', '${idF}', 'Compar', '${idpost}')" id="Comp-${idpost}" data-pai="${idpost}">
+                <button class="bt_react" onclick="reactpostAPI('${Cuser}', '${idF}', 'Compar', '${idpost}')" id="Comp-${idpost}" data-pai="${idpost}">
                     <img src="/IMG/reacts/comp.png" class="img_icon">
                 </button>
                 <label style="cursor: pointer;" onclick="ReactPress('like', this)" data-pai="${idpost}">${Ncomp}</label>
@@ -263,7 +273,7 @@ RenderPage()
 
 
 function readyPage() {
-    const currentUser = sessionStorage.getItem('user');
+    const Cuser = sessionStorage.getItem('user');
 
     const username = document.getElementById('nameUser');
 
@@ -281,7 +291,7 @@ function readyPage() {
             return response.json();
         })
         .then((data) => {
-            const user = data[1][currentUser]
+            const user = data[1][Cuser]
             username.textContent = user['nome'];
             document.title = `${user['nome']}` + ' ShSite';
         })

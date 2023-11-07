@@ -1,4 +1,3 @@
-console.clear()
 const { Decipher } = require("crypto");
 const express = require("express");
 const fs = require("fs");
@@ -12,6 +11,10 @@ server.use(express.json());
 function ToCrud() {
     window.location.href = 'a_project/log.html';
 }
+
+
+
+
 
 
 // Configurar o CORS para permitir requisições da origem http://127.0.0.1:5500
