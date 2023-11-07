@@ -12,11 +12,12 @@ function RenderPage() {
         .then(response => response.json())
         .then(data => {
             const dados = data[1][currentUser]
+            const seguindo = dados["seguindo"]
             console.log(dados);
 
-            for (let i in dados["seguindo"]) {
+            for (let i in seguindo) {
 
-                console.log(i);
+                console.log(seguindo[i]);
             }
 
 

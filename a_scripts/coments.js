@@ -1,4 +1,6 @@
-const Cuser = sessionStorage.getItem('user')
+const cuser = sessionStorage.getItem('user');
+
+
 
 function commitkk() {
 
@@ -11,7 +13,7 @@ function commitkk() {
     const struc = {
         commit: TextArea.value,
         idkey: key.b,
-        Cuser: Cuser
+        Cuser: cuser
     }
     fetch('http://localhost:3000/', {
             method: 'POST',
@@ -31,7 +33,6 @@ function commitkk() {
 
 
 function Commit(bt) {
-    const Cuser = sessionStorage.getItem('user');
     const idPost = bt.getAttribute('data-key');
     const commit = document.getElementById(`ta-${idPost}`).value;
 
@@ -41,7 +42,7 @@ function Commit(bt) {
     const struc = {
         commit: commit,
         idkey: idPost,
-        Cuser: Cuser
+        Cuser: cuser
     }
 
 

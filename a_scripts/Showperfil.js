@@ -71,7 +71,6 @@ function seguir() {
         currentUser: Cuser,
         friendID: Fuser
     }
-
     fetch('http://localhost:3000/follow', {
             method: 'POST',
             headers: {
@@ -86,6 +85,8 @@ function seguir() {
         .catch(error => {
             console.error('Erro:', error);
         });
+
+    console.log(info);
 
 }
 
