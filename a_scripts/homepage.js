@@ -36,21 +36,33 @@ function RenderPage() {
 
                 const publi = publis[p][0]
                 const idpost = publis[p][1]
-                const Fuser = data[1][decodeKey(idpost).a]
+                const Fuser = decodeKey(idpost).a
+                const Fuser_data = data[1][decodeKey(idpost).a]
 
                 const obj = {
-                    nome: Fuser['nome'],
+                    nome: Fuser_data['nome'],
                     txt: publi['txt'],
                     Nlikes: publi['likes'].length,
                     Ndeslike: publi['Dlikes'].length,
                     Ncomp: publi['Compar'].length,
                     idpost: idpost,
-                    idF: decodeKey(idpost).a,
+                    idF: Fuser,
                     Ncoments: Object.keys(publi['commits']).length
                 }
                 CreatPostFriendPage(obj['nome'], obj['txt'], obj['Nlikes'], obj['Ndeslike'], obj['Ncomp'], obj['idpost'], obj['idF'], obj['Ncoments']);
 
-                console.table(obj);
+                if (obj['Ncoments'] != 0) {
+                    const commits = publi['commits'];
+                    for (let i in commits) {
+                        const idcommit = Object.keys(publi['commits'])[0];
+                        for (let i in commits) {
+                            commitRender(commits[i]['nome'], obj['idpost'], commits[i]['likes'], commits[i]['Dlikes'], commits[i]['commit'], idcommit)
+                        }
+                    }
+
+                }
+
+
 
             }
 
