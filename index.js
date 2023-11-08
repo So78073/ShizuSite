@@ -1,3 +1,4 @@
+const { clear } = require("console");
 const { Decipher } = require("crypto");
 const express = require("express");
 const fs = require("fs");
@@ -11,6 +12,8 @@ server.use(express.json());
 function ToCrud() {
     window.location.href = 'a_project/log.html';
 }
+
+
 
 
 

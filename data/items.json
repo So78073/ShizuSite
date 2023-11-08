@@ -17,7 +17,7 @@
             "1-2023.11.11.50": { "txt": "test de publications\nsdasdasd", "likes": [], "Dlikes": [], "Compar": [], "commits": {} }
         },
         "seguindo": ["2", "3"],
-        "seguidores": [],
+        "seguidores": ["2"],
         "bio": ""
     },
     "2": {
@@ -45,7 +45,7 @@
                 "commits": {}
             }
         },
-        "seguindo": [],
+        "seguindo": ["1"],
         "seguidores": ["1"],
         "bio": "esta é minha bio"
     },
@@ -64,8 +64,4 @@
         "seguidores": ["1"],
         "bio": ""
     }
-}, {
-    "Shizu soares": "1",
-    "Helen soares": "2",
-    "Tilda Soares de Assis": "3"
-}]
+}, { "Shizu soares": "1", "Helen soares": "2", "Tilda Soares de Assis": "3" }]

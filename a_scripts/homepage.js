@@ -41,20 +41,19 @@ function RenderPage() {
                 const obj = {
                     nome: Fuser['nome'],
                     txt: publi['txt'],
-                    Nlike: publi['likes'].length,
+                    Nlikes: publi['likes'].length,
                     Ndeslike: publi['Dlikes'].length,
                     Ncomp: publi['Compar'].length,
                     idpost: idpost,
-                    idF: Fuser,
+                    idF: decodeKey(idpost).a,
                     Ncoments: Object.keys(publi['commits']).length
                 }
+                CreatPostFriendPage(obj['nome'], obj['txt'], obj['Nlikes'], obj['Ndeslike'], obj['Ncomp'], obj['idpost'], obj['idF'], obj['Ncoments']);
+
                 console.table(obj);
 
             }
 
-
-            /*"1-2023.11.11.20": { "txt": "", "likes": [], "Dlikes": [], "Compar": [], "commits": {} }*/
-            /*CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, Ncoments)*/
 
 
         })
@@ -185,6 +184,12 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
 </div>
 
     `;
+
+
+
+
+
+
     newPosts.insertAdjacentHTML('beforeend', htmlString)
 
 }
