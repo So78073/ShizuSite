@@ -219,7 +219,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
 
         delpost: `
         <button class="bt_opcPost" id="delPost/${idpost}">
-            <img src="/IMG/config_postMit.png" class="bt_opcPost_img" onclick="dellpost(this)"></button>
+            <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="${idpost}" onclick="dellpost(this)"></button>
         </button>
         `,
 

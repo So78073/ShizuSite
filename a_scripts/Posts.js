@@ -71,23 +71,27 @@ function newPostInPerfil() {
 
 function dellpost(bt) {
 
-    const IDpost = bt.ge
+    const idPost = bt.getAttribute('data-key');
 
     const obj = {
         Cuser: Cuser,
-        IDpost: ''
+        id1: idPost,
+        id2: null,
+        Type: 'post'
     }
 
-    fetch('http://localhost:3000/DellPost', {
+    fetch('http://localhost:3000/delete', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(obj)
         })
         .then(response => response.json())
         .then(data => {})
         .catch(error => {
             console.error('Erro:', error);
         });
+
+
 }

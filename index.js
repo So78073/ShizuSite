@@ -6,6 +6,7 @@ const { url } = require("inspector");
 
 const server = express();
 const router = express.Router();
+const dataAtual = new Date();
 
 server.use(express.json());
 
@@ -13,12 +14,7 @@ function ToCrud() {
     window.location.href = 'a_project/log.html';
 }
 
-
-
-
-
-
-
+console.log(`------------------- ini API dev ${dataAtual}`)
 
 // Configurar o CORS para permitir requisições da origem http://127.0.0.1:5500
 server.use((req, res, next) => {
@@ -179,7 +175,7 @@ router.post('/commit', (req, res) => {
     const { commit, idkey, Cuser } = req.body;
     const keys = decodeKey(idkey)
 
-    const dataAtual = new Date();
+
     const ano = dataAtual.getFullYear();
     const mes = dataAtual.getMonth() + 1;
     const hora = dataAtual.getHours();
@@ -194,20 +190,20 @@ router.post('/commit', (req, res) => {
 router.post('/delete', (req, res) => {
     const data = readFile();
     const { Cuser, id1, id2, Type } = req.body;
+    const KeysUserPost = decodeKey(id1);
 
     if (Type == 'commit') {
-        const KeysUserPost = decodeKey(id1);
-        const publication = data[1][KeysUserPost.a]["publications"][id1];
 
         delete data[1][KeysUserPost.a]['publications'][id1]['commits'][id2]
         fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
     }
 
     if (Type == "post") {
-        res.send(Cuser)
+        if (Cuser == KeysUserPost.a) {
+            delete data[1][KeysUserPost.a]['publications'][id1]
+            fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
+        }
     }
-
-
 });
 
 
