@@ -6,34 +6,6 @@
     justify-content: center;
 }
 
-@keyframes abrir {
-    0% {
-        width: 0px;
-        opacity: 0%;
-    }
-    50% {
-        opacity: 0%;
-    }
-    100% {
-        width: 500px;
-        opacity: 100%;
-    }
-}
-
-@keyframes fechar {
-    0% {
-        width: 500px;
-        opacity: 100%;
-    }
-    50% {
-        opacity: 0%;
-    }
-    100% {
-        width: 0px;
-        opacity: 0%;
-    }
-}
-
 .buttonInfoCommit {
     height: 30px;
     width: 60px;
@@ -75,5 +47,100 @@
     }
     to {
         transform: scale(1.1);
+    }
+}
+
+
+/*                                   CLASS BOTÃO OPÇÃO DO POST                          */
+
+.Publi_opc {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.bt_opcPost {
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.0);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    align-self: center;
+    margin-right: 15px;
+}
+
+.bt_opcPost img {
+    width: 32px;
+    height: 32px;
+}
+
+.opcPost {
+    display: none;
+    background: aliceblue;
+    justify-content: center;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.center {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+
+/*                                   ANIMAÇÕES                          */
+
+@keyframes abrir {
+    0% {
+        width: 0px;
+        opacity: 0%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        width: 500px;
+        opacity: 100%;
+    }
+}
+
+@keyframes fechar {
+    0% {
+        width: 500px;
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        width: 0px;
+        opacity: 0%;
+    }
+}
+
+@keyframes abrirPostOps {
+    0% {
+        width: 0%;
+        opacity: 0%;
+    }
+    50% {
+        width: 50%;
+        opacity: 150%;
+    }
+}
+
+@keyframes fecharPostOps {
+    0% {
+        width: 50%;
+        opacity: 100%;
+    }
+    100% {
+        width: 0%;
+        opacity: 0%;
     }
 }

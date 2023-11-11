@@ -13,7 +13,8 @@ function RenderPage() {
         .then(data => {
 
             const dt = data[1]
-            const seguindo = dt[Cuser]['seguindo']
+            let seguindo = dt[Cuser]['seguindo'];
+            seguindo.push(Cuser)
 
 
             let publis = [];
@@ -25,6 +26,7 @@ function RenderPage() {
                     if (a && cache < 5) {
                         publis.push([dt[seguindo[i]]['publications'][a], a])
                         cache += 1;
+
                     } else {
                         break
                     }
@@ -85,10 +87,10 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
                             <img src="/IMG/USER_DEFAUT.png" style="margin-left: 15px; margin-top: 3px;">
                             <label class="CommitUserName">${nome}</label>
                             <div class="div_config_commit">
-                                <button class="bt_opc_commit" data-key="popPost/${idpost}" onclick="InfoCommit(this)"> 
+                                <button class="bt_opc_commit" data-key="co/${idpost}" onclick="InfoCommit(this)"> 
                                 <img src="/IMG/config_postMit.png" class="img_icon"></button>
                             </div>
-                            <div class="div_option_commit" id="popPost/${idpost}">
+                            <div class="div_option_commit" id="co/${idpost}">
                                 <button class="buttonInfoCommit" data-key="co/${idCommit}" onclick="popupFunction(this)">Excluir</button>
                                 <button class="buttonInfoCommit"></button>
                                 <button class="buttonInfoCommit"></button>
@@ -130,13 +132,25 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
 function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, Ncoments) {
 
     const newPosts = document.getElementById('newPosts');
+    const dellpost = document.getElementById(`del/${idpost}`);
 
     const htmlString = `
     <div class="posts" id="${idpost}">
     <div class="readyPost">
         <div class="userInfoPost">
             <img src="/IMG/USER_DEFAUT.png">
-            <h2 class="h2">${nome}</h2>
+            <h2 class="h2_namePost">${nome}</h2>
+
+
+            <div class="Publi_opc">
+                <button class="bt_opcPost">
+                    <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="popPost/${idpost}" onclick="InfoPost(this)"></button>
+                </button>
+            </div>
+
+            <div class="opcPost" id="popPost/${idpost}">
+                
+            </div>
         </div>
         
         <div class="TextPosts">
@@ -197,14 +211,30 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
 
     `;
 
-
-
-
-
-
     newPosts.insertAdjacentHTML('beforeend', htmlString)
 
+    const isOwner = (Cuser == idF) ? true : false
+    const opcPost = document.getElementById(`popPost/${idpost}`)
+    let permis = {
+
+        delpost: `
+        <button class="bt_opcPost" id="delPost/${idpost}">
+            <img src="/IMG/config_postMit.png" class="bt_opcPost_img" onclick="dellpost(this)"></button>
+        </button>
+        `,
+
+    }
+
+    if (isOwner == true) {
+        const permissoes = ['delpost']
+        for (let p in permissoes) {
+            opcPost.insertAdjacentHTML('beforeend', permis[permissoes[p]])
+        }
+    }
+
 }
+
+
 
 /*react post */
 function reactpostAPI(Cuser, Fuser, Type, IDpost) {

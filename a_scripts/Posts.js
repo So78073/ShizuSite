@@ -69,27 +69,25 @@ function newPostInPerfil() {
 
 
 
+function dellpost(bt) {
 
+    const IDpost = bt.ge
 
+    const obj = {
+        Cuser: Cuser,
+        IDpost: ''
+    }
 
-
-
-
-
-/*
-<div class="Guy" id="divGuy1">
-<div class="PeoplesReact">
-    <img src="/IMG/USER_DEFAUT.png" class="imgFrinds">
-    <button class="friendsBT" onclick="ClickFriend()">${nome}</button>
-</div>
-<div class="PeoplesReact">
-    <img src="/IMG/USER_DEFAUT.png" class="imgFrinds">
-    <button class="friendsBT" onclick="ClickFriend()">${nome}</button>
-</div>
-<div class="PeoplesReact">
-    <img src="/IMG/USER_DEFAUT.png" class="imgFrinds">
-    <button class="friendsBT" onclick="ClickFriend()">${nome}</button>
-</div>
-</div>
-
-*/
+    fetch('http://localhost:3000/DellPost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(response => response.json())
+        .then(data => {})
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+}

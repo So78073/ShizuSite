@@ -157,6 +157,8 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
 
     const newPosts = document.getElementById('page');
 
+
+
     const htmlString = `
     <div class="posts" id="${idpost}">
     <div class="readyPost">

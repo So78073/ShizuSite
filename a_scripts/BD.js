@@ -54,7 +54,7 @@ function GETdata() {
 }
 
 function POSTdata() {
-    let user = {
+    let obj = {
         user: elem('user', 'post'),
         senha: elem('senha', 'post'),
         email: elem('email', 'post'),
@@ -66,7 +66,7 @@ function POSTdata() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(obj)
         })
         .then(response => response.json())
         .then(data => {})

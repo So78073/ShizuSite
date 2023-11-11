@@ -74,6 +74,8 @@ router.post('/publiAPI', (req, res) => {
 
 });
 
+
+
 router.get('/friends', (req, res) => {
     const content = readFile();
     const { nome } = req.query;
@@ -191,7 +193,8 @@ router.post('/commit', (req, res) => {
 
 router.post('/delete', (req, res) => {
     const data = readFile();
-    const { id1, id2, Type } = req.body;
+    const { Cuser, id1, id2, Type } = req.body;
+
     if (Type == 'commit') {
         const KeysUserPost = decodeKey(id1);
         const publication = data[1][KeysUserPost.a]["publications"][id1];
@@ -200,7 +203,17 @@ router.post('/delete', (req, res) => {
         fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
     }
 
+    if (Type == "post") {
+        res.send(Cuser)
+    }
+
+
 });
+
+
+
+
+
 
 
 router.post('/follow', (req, res) => {

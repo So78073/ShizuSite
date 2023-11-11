@@ -114,6 +114,31 @@ function InfoCommit(bt) {
 }
 
 
+function InfoPost(bt) {
+    const IDpost = bt.getAttribute('data-key');
+    const popup = document.getElementById(IDpost);
+    const computedStyle = window.getComputedStyle(popup);
+
+    if (computedStyle.display === 'flex') {
+        popup.style.animation = "fecharPostOps 1s ease-in-out";
+
+        // Adicione um ouvinte de evento para detectar quando a animação "fechar" termina
+        popup.addEventListener("animationend", () => {
+            popup.style.display = 'none';
+            popup.style.animation = '';
+        }, { once: true });
+    } else {
+        popup.style.display = 'flex';
+        popup.style.animation = "abrirPostOps 1s ease-in-out";
+
+        // Adicione um ouvinte de evento para detectar quando a animação "abrir" termina
+        popup.addEventListener("animationend", () => {
+            popup.style.animation = '';
+        }, { once: true });
+    }
+}
+
+
 function popupFunction(bt) {
     const key = bt.getAttribute('data-key');
     const elem = document.getElementById(key);
@@ -134,6 +159,7 @@ function DeleteCommitFunction(bt) {
     // Exibe as chaves separadas no console para fins de depuração
     console.table(keys);
     const obj = {
+        Cuser: Cuser,
         id1: keys.a,
         id2: keys.b,
         Type: "commit"
