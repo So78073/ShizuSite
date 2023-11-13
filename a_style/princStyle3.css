@@ -240,7 +240,7 @@
     background: aliceblue;
     white-space: pre-line;
     border-radius: 5px;
-    min-height: 15px;
+    min-height: 100px;
 }
 
 .div_config_commit {

@@ -379,6 +379,4 @@ function readyPage() {
         });
 }
 
-
-
 readyPage();

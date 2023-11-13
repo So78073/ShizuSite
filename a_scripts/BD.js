@@ -61,16 +61,50 @@ function POSTdata() {
         nome: elem('nome', 'post'),
     }
 
-    fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-        })
-        .then(response => response.json())
-        .then(data => {})
-        .catch(error => {
-            console.error('Erro:', error);
-        });
+    for (let d in obj) {
+        if (isStringOnlySpaces(obj[d]) == true) {
+            obj[d] = null;
+        }
+    }
+
+    if (obj['user'] != null && obj['senha'] != null && obj['email'] != null && obj['nome'] != null) {
+        if (obj['user'] != null && obj['senha'] != null && obj['email'] != null && obj['nome'] != null) {
+            fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(obj)
+                })
+                .then(response => response.json())
+                .then(data => {})
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            location.reload();
+        } else {
+            alert("não tem nada aqui")
+        }
+
+    } else {
+        alert("Não há nada no campo requisitado ! complete todos por favor ^^ ! ")
+    }
+
+
+
+
+}
+
+function isStringOnlySpaces(str) {
+    var trimmedStr = str.trim();
+    return trimmedStr === '';
+
+
+    // Verifica se a string contém apenas espaços em branco
+    // console.log(isStringOnlySpaces("   "));      true
+    // console.log(isStringOnlySpaces("   Olá   "));  false
+    // console.log(isStringOnlySpaces("Texto"));      false
+    // console.log(isStringOnlySpaces(""));           true 
+
+
 }

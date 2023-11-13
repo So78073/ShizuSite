@@ -45,18 +45,22 @@ router.post('/', (req, res) => {
     const { user, senha, email, nome } = req.body;
     let idUser = String(Object.keys(currentContent[0]).length + 1);
 
+    if (user != null && senha != null && email != null && nome != null) {
+        if (user in currentContent[0]) {
+            res.send("USUARIO EXISTENTE");
+        } else {
+            currentContent[0][user] = { senha: senha, email: email, id: idUser };
+            currentContent[1][idUser] = { "nome": String(nome), "publications": {}, "seguindo": [], "seguidores": [], "bio": "" };
+            currentContent[2][nome] = idUser;
 
-    if (user in currentContent[0]) {
-        res.send("USUARIO EXISTENTE");
+            fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
+            res.send(currentContent[0]);
+        }
+
     } else {
-        currentContent[0][user] = { senha: senha, email: email, id: idUser };
-        currentContent[1][idUser] = { "nome": String(nome), "publications": {}, "seguindo": [], "seguidores": [], "bio": "" };
-        currentContent[2][nome] = idUser;
-
-
-        fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
-        res.send(currentContent[0]);
+        res.send("deu n")
     }
+
 });
 
 /* publications route*/

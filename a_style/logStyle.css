@@ -89,6 +89,7 @@ body {
     background: rgb(0, 119, 255);
     margin-top: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .btPage {
@@ -108,4 +109,5 @@ body {
     border: none;
     background: rgb(0, 119, 255);
     margin-top: 10px;
+    cursor: pointer;
 }

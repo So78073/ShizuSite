@@ -1,15 +1,7 @@
 var popupOnOff = 0;
 
-function openPOPup() {
-    const elem = document.getElementById('popupADDpost')
-    if (popupOnOff == 0) {
-        elem.style.display = 'flex';
-        popupOnOff = 1;
-    } else {
-        elem.style.display = 'none';
-        popupOnOff = 0
-    }
-}
+
+
 
 async function fetchUserData() {
     const apiUrl = 'http://localhost:3000/';
