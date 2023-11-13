@@ -1,8 +1,6 @@
 # ShizuSevenWebsite
 Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de aprimorar minhas habilidades em JS, HTML, CSS e Node.js.
 
-## (caso clone o repositorio, não se esqueça de iniciar a api usando powershell !! - npm run dev)
-
 ## coisas que aprendo fazendo esse projeto:
 - melhoria extrema em HTML/CSS
 - otimização de codigo JS
@@ -11,22 +9,32 @@ Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de a
 - sistema de cliente / usuarios / Adm
 - git e outros recursos
 
+# v2.0.0
 
-# v1.0.8
-JA ADICIONADO :
+## JA ADICIONADO :
 - comentarios 
 - likes / deslikes
 - procurar usuario 
 - seguir / parar de seguir 
 - posts 
 - biografia dinamica
-
-
-PENDENTE :
 - deletar post
 - deletar comentario 
+
+## PENDENTE :
+
 - postar imagem 
 - trocar de usuario
+
+# Como usar / testar :
+## 1* iniciar a API
+![Texto Alternativo](readFolder/NPM.png)
+
+## 2* Abrir o log (Extenção Live Server não é obrigatorio)
+![Texto Alternativo](readFolder/LiveServerTuto.png)
+
+## como funciona o sistema de login :
+![Texto Alternativo](readFolder/BD.png)
 
 
 
