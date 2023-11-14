@@ -265,6 +265,10 @@ function reactpostAPI(Cuser, Fuser, Type, IDpost) {
         });
 }
 
+function GetAutAccount() {
+    window.location.href = "../a_project/log.html";
+}
+
 function ReactPress(func, bt) {
     /*likes,  Dlikes, Compar*/
 

@@ -19,12 +19,12 @@ Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de a
 - posts 
 - biografia dinamica
 - deletar post
-- deletar comentario 
+- deletar comentario
+- trocar de usuario
 
 ## PENDENTE :
 
 - postar imagem 
-- trocar de usuario
 
 # Como usar / testar :
 ## 1* iniciar a API
