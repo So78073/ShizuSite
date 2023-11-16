@@ -51,18 +51,23 @@
                         <textarea id="textpost" cols="10" rows="10" class="textPopUp" placeholder="No que você está pensando hoje ??" name="test"></textarea>
                     </div>
                     <div class="addPostDown">
-                        <button>MAYBE LATER !!</button>
-                        <button>MAYBE LATER !!</button>
-                        <button onclick="newPostInPerfil()">PUBLICAR</button>
+                        <button class="bt_postConfig">
+                            <img src="../IMG\imgIcon.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
+                            <label >Publication</label></button>
+                        </button>
+
+                        <button class="bt_postConfig">
+                            <img src="../IMG/publiCation.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
+                            <label >Publication</label></button>
+                        </button>
+
+
                     </div>
                 </div>
-                <canvas class="CanvasChat"></canvas>
+
             </div>
+            <canvas class="CanvasChat"></canvas>
 
-
-            <!-- POST (ESSA É UMA AREA UM POUCO COMPLEXA ENTÃO DECIDI DESTACALA)-->
-
-            <!-- NELA EU TENHO UMA BASE DO QUE COPIAR NO BACK END PARA CRIAR UM CLONE A BASE DE CODIGO-->
 
         </div>
 

@@ -144,3 +144,31 @@
         opacity: 0%;
     }
 }
+
+.BtPostDown {
+    height: 100%;
+}
+
+.bt_postConfig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.26);
+    transition: all .3s ease-in;
+    margin-left: 10px;
+}
+
+.bt_postConfig label {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.img_postConfig {
+    width: 40px;
+    align-self: center;
+}
