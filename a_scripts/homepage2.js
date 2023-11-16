@@ -22,7 +22,19 @@ function infoPerfil(bt) {
     }
 }
 
-function getoutAccount() {
-    const elem = document.getElementById('confimClosePage');
-    window.
+function GetAutAccount() {
+    window.location.href = "../a_project/log.html";
+}
+
+function openOPC() {
+
+    const elem = document.getElementById('opcPerfil');
+
+    if (window.getComputedStyle(elem).display === 'none') {
+        elem.style.display = 'flex';
+    } else {
+        elem.style.display = 'none';
+    }
+    console.log('aperto');
+
 }
