@@ -50,17 +50,25 @@
                     <div class="popText">
                         <textarea id="textpost" cols="10" rows="10" class="textPopUp" placeholder="No que você está pensando hoje ??" name="test"></textarea>
                     </div>
+
                     <div class="addPostDown">
-                        <button class="bt_postConfig">
-                            <img src="../IMG\imgIcon.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
-                            <label >Publication</label></button>
-                        </button>
+
+
+                        <div class="custom-file-upload">
+                            <input type="file" name="arquivo" id="arquivo" class="inputfile" accept="image/*">
+                            <label for="arquivo" class="bt_postConfig">
+                                <span class="img-container">
+                                    <img src="../IMG/imgIcon.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
+                                </span>
+                                <span class="label-text">Imagem</span>
+                            </label>
+                        </div>
+
 
                         <button class="bt_postConfig">
                             <img src="../IMG/publiCation.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
-                            <label >Publication</label></button>
+                            <label >Publicar</label></button>
                         </button>
-
 
                     </div>
                 </div>
@@ -90,17 +98,12 @@
                 <div class="encontrados" id="encontrados">
 
                 </div>
-            </div>
 
+            </div>
 
         </div>
 
-
-
     </div>
-
-
-
 
     <script src="../a_scripts/homepage.js "></script>
     <script src="../a_scripts/homepage2.js "></script>
