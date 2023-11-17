@@ -136,25 +136,43 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
 
     const htmlString = `
     <div class="posts" id="${idpost}">
+    
+
+    
     <div class="readyPost">
         <div class="userInfoPost">
             <img src="/IMG/USER_DEFAUT.png">
             <h2 class="h2_namePost">${nome}</h2>
+
+            <div class="popupCancel">
+                <h2>Título da Pop-up</h2>
+                <button>Botão 1</button>
+                <button>Botão 2</button>
+            </div>
 
 
             <div class="Publi_opc">
                 <button class="bt_opcPost">
                     <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="popPost/${idpost}" onclick="InfoPost(this)"></button>
                 </button>
+
+                
             </div>
 
             <div class="opcPost" id="popPost/${idpost}">
+
+            
                 
             </div>
+
+            
         </div>
         
         <div class="TextPosts">
             <p>${texto}</p>
+
+
+        </div>
         </div>
 
 
@@ -194,7 +212,7 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
             
             
             <div class="commits" id="cm-${idpost}">
-
+            
             
             </div>
         </div>
@@ -202,11 +220,16 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
             </div>
             <canvas class="CanvasChat"></canvas>
         </div>
-
+        
         <div class="likeChat"></div>
 
         <div class="reactions"></div>
+        
     </div>
+
+
+
+
 </div>
 
     `;

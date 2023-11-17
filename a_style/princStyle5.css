@@ -1,0 +1,36 @@
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Fundo escuro para destacar a pop-up */
+    }
+    
+    .popupCancel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(76, 0, 255);
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+    
+    .popupCancel h2 {
+        margin-bottom: 15px;
+    }
+    
+    .popupCancel button {
+        background-color: #fff;
+        color: #8a2be2;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        margin: 0 10px;
+        cursor: pointer;
+    }

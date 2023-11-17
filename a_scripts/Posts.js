@@ -1,8 +1,3 @@
-var popupOnOff = 0;
-
-
-
-
 async function fetchUserData() {
     const apiUrl = 'http://localhost:3000/';
     try {

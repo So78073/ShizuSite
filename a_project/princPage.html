@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="/a_style/princStyle2.css">
     <link rel="stylesheet" href="/a_style/princStyle3.css">
     <link rel="stylesheet" href="/a_style/princStyle4.css">
+    <link rel="stylesheet" href="/a_style/princStyle5.css">
 
     <script src="/a_scripts/Posts.js"></script>
 </head>
 
 <body>
+
+
 
     <div class="userInform">
 
@@ -58,44 +61,44 @@
                             <input type="file" name="arquivo" id="arquivo" class="inputfile" accept="image/*">
                             <label for="arquivo" class="bt_postConfig">
                                 <span class="img-container">
-                                    <img src="../IMG/imgIcon.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
+                                    <img src="../IMG/imgIcon.png" class="img_postConfig" >
                                 </span>
                                 <span class="label-text">Imagem</span>
                             </label>
                         </div>
 
-
-                        <button class="bt_postConfig">
-                            <img src="../IMG/publiCation.png" class="img_postConfig" data-key="popPost/${idpost}" onclick="InfoPost(this)">
+                        <button class="bt_postConfig" data-key="popPost" onclick="newPostInPerfil()">
+                            <img src="../IMG/publiCation.png " class="img_postConfig ">
                             <label >Publicar</label></button>
                         </button>
+
 
                     </div>
                 </div>
 
             </div>
-            <canvas class="CanvasChat"></canvas>
+            <canvas class="CanvasChat "></canvas>
 
 
         </div>
 
-        <div class="rightSide" id="friend">
-            <div class="opc" id="opcPerfil">
+        <div class="rightSide " id="friend ">
+            <div class="opc " id="opcPerfil ">
                 <button>a</button>
                 <button>a</button>
                 <button>a</button>
                 <button>a</button>
-                <button onclick="GetAutAccount()">sair</button>
+                <button onclick="GetAutAccount() ">sair</button>
             </div>
 
-            <div class="friends">
+            <div class="friends ">
                 <h2 style=" color: aliceblue; ">Amigos</h2>
                 <div class="browserFR ">
-                    <input type="text " class="friendsBT " id="nomeFriendBrownser">
-                    <button class="friendsBT2" onclick="BrownserFR()">></button>
+                    <input type="text " class="friendsBT " id="nomeFriendBrownser ">
+                    <button class="friendsBT2 " onclick="BrownserFR(null) ">></button>
                 </div>
 
-                <div class="encontrados" id="encontrados">
+                <div class="encontrados " id="encontrados ">
 
                 </div>
 
@@ -105,11 +108,13 @@
 
     </div>
 
+
+
     <script src="../a_scripts/homepage.js "></script>
     <script src="../a_scripts/homepage2.js "></script>
     <script src="/a_scripts/Posts.js "></script>
     <script src="/a_scripts/brownserFriend.js "></script>
-    <script src="/a_scripts/coments.js"></script>
+    <script src="/a_scripts/coments.js "></script>
 </body>
 
 </html>

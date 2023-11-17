@@ -162,6 +162,7 @@
     width: 175px;
     text-align: center;
     color: aliceblue;
+    cursor: pointer;
 }
 
 .bt_postConfig label {
@@ -174,7 +175,7 @@
 }
 
 .img_postConfig {
-    width: 40px;
+    width: 30px;
     align-self: center;
 }
 
