@@ -54,7 +54,16 @@ function newPostInPerfil() {
         });
 }
 
+function openPopUpPost(bt) {
+    const elem = document.getElementById(bt.getAttribute('data-key'));
 
+    if (getComputedStyle(elem).display == 'block') {
+        elem.style.display = 'none';
+    } else {
+        elem.style.display = 'block';
+    }
+
+}
 
 function dellpost(bt) {
 

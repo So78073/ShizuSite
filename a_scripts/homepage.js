@@ -128,7 +128,6 @@ function commitRender(nome, idpost, likes, Dlikes, txt, idCommit) {
     pai.insertAdjacentHTML('beforeend', htmlString);
 }
 
-
 function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, Ncoments) {
 
     const newPosts = document.getElementById('newPosts');
@@ -144,22 +143,21 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
             <img src="/IMG/USER_DEFAUT.png">
             <h2 class="h2_namePost">${nome}</h2>
 
-            <div class="popupCancel">
-                <h2>Título da Pop-up</h2>
-                <button>Botão 1</button>
-                <button>Botão 2</button>
-            </div>
-
+            
 
             <div class="Publi_opc">
-                <button class="bt_opcPost">
-                    <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="popPost/${idpost}" onclick="InfoPost(this)"></button>
+                <button class="bt_opcPost" >
+                    <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="opcPost/${idpost}" onclick="InfoPost(this)">
                 </button>
-
-                
             </div>
 
-            <div class="opcPost" id="popPost/${idpost}">
+            <div class="popupCancel" id="popupost/${idpost}">
+                <h2>Tem Certeza ?<h2>
+                <button data-key="${idpost}"onclick="dellpost(this)">Exclui</button>
+                <button>Cancelar</button>
+            </div>
+
+            <div class="opcPost" id="opcPost/${idpost}">
 
             
                 
@@ -170,8 +168,6 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
         
         <div class="TextPosts">
             <p>${texto}</p>
-
-
         </div>
         </div>
 
@@ -237,16 +233,17 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
     newPosts.insertAdjacentHTML('beforeend', htmlString)
 
     const isOwner = (Cuser == idF) ? true : false
-    const opcPost = document.getElementById(`popPost/${idpost}`)
+    const opcPost = document.getElementById(`opcPost/${idpost}`)
     let permis = {
 
         delpost: `
         <button class="bt_opcPost" id="delPost/${idpost}">
-            <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="${idpost}" onclick="dellpost(this)"></button>
+            <img src="/IMG/config_postMit.png" class="bt_opcPost_img" data-key="popupost/${idpost}" onclick="openPopUpPost(this)">
         </button>
         `,
 
     }
+
 
     if (isOwner == true) {
         const permissoes = ['delpost']
