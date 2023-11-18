@@ -30,11 +30,11 @@ function openOPC() {
 
     const elem = document.getElementById('opcPerfil');
 
-    if (window.getComputedStyle(elem).display === 'none') {
-        elem.style.display = 'flex';
-    } else {
+    if (getComputedStyle(elem).display === "block") {
         elem.style.display = 'none';
+    } else {
+        elem.style.display = 'block';
     }
-    console.log('aperto');
+
 
 }
