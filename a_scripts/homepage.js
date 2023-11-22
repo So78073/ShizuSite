@@ -169,7 +169,10 @@ function CreatPostFriendPage(nome, texto, Nlike, Ndeslike, Ncomp, idpost, idF, N
         <div class="TextPosts">
             <p>${texto}</p>
         </div>
-        </div>
+
+        <div class="img_post" id="imgpost">
+        
+        </div> 
 
 
         <div class="ReactPost">

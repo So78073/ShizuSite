@@ -21,7 +21,9 @@ async function fetchUserData() {
 /* APLICAÇÃO EM SI (ADICIONAR NOVO POST AO PERFIL) */
 function newPostInPerfil() {
     const currentUser = sessionStorage.getItem('user');
-    const text = document.getElementById('textpost');
+    const text = document.getElementById('textpost').value;
+    const fileInput = document.getElementById('arquivo');
+    const imgPostDiv = document.getElementById('imgpost');
 
     const dataAtual = new Date();
     const ano = dataAtual.getFullYear();
@@ -29,30 +31,39 @@ function newPostInPerfil() {
     const hora = dataAtual.getHours();
     const minuto = dataAtual.getMinutes();
 
-
-    const struc = {
+    const obj = {
         userid: currentUser,
         txtid: `${currentUser}-${ano}.${mes}.${hora}.${minuto}`,
-        text: text.value
-    }
+        text: text,
+    };
 
-    console.log(struc['idpost'], struc['text']);
+    const formData = new FormData();
+    formData.append('userid', obj.userid);
+    formData.append('txtid', obj.txtid);
+    formData.append('text', obj.text);
+    formData.append('img', fileInput.files[0]);
 
-    fetch('http://localhost:3000/publiAPI', {
+    console.log(obj);
+
+    // Agora você pode fazer a solicitação para a API usando fetch
+    fetch('http://localhost:3000/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(struc)
+            body: formData,
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // Aqui você pode lidar com a resposta da API
+            console.log('Resposta da API:', data);
         })
         .catch(error => {
-            console.error('Erro:', error);
+            console.error('Erro ao enviar a postagem:', error);
         });
+
+    imgPostDiv.innerHTML = '';
 }
+
+
+
 
 function openPopUpPost(bt) {
     const elem = document.getElementById(bt.getAttribute('data-key'));

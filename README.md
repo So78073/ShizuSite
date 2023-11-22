@@ -24,7 +24,7 @@ Este é um projeto no qual eu estou desenvolvendo um website com o objetivo de a
 
 ## PENDENTE :
 
-- postar imagem 
+
 
 # Como usar / testar :
 ## 1* iniciar a API

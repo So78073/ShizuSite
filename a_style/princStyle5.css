@@ -8,6 +8,15 @@
         /* Fundo escuro para destacar a pop-up */
     }
     
+    .img_post {
+        display: none;
+        width: 100%;
+        height: 400px;
+        background: yellow;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+    
     .popupCancel {
         position: fixed;
         display: none;

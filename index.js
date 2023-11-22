@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
 router.post('/publiAPI', (req, res) => {
 
     const currentContent = readFile();
-    const { userid, txtid, text } = req.body;
+    const { userid, txtid, text, img } = req.body;
 
     currentContent[1][userid]['publications'][txtid] = { txt: text, likes: [], Dlikes: [], Compar: [], commits: {} }
     fs.writeFileSync(jsonPath, JSON.stringify(currentContent), 'utf-8');
@@ -190,6 +190,9 @@ router.post('/commit', (req, res) => {
 
     fs.writeFileSync(jsonPath, JSON.stringify(data), 'utf-8');
 });
+
+
+
 
 router.post('/delete', (req, res) => {
     const data = readFile();
